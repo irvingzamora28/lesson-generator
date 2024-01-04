@@ -1,4 +1,7 @@
-import os
+from dotenv import dotenv_values
 
-# Use environment variable for OpenAI API key
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+config = dotenv_values(".env")
+
+# Provide default value if key not defined
+OPENAI_API_KEY = config.get('OPENAI_API_KEY', '')  
+

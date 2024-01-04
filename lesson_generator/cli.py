@@ -1,7 +1,6 @@
 import sys
 import os
 import json
-from dotenv import load_dotenv
 from lesson_generator.i18n_setup import setup_i18n
 from lesson_generator.openai_api import generate_content
 from lesson_generator.json_loader import process_json_file
@@ -9,7 +8,6 @@ from lesson_generator.embed_components import embed_components_in_sections
 from lesson_generator.log import logger
 from lesson_generator.error_handling import LessonGenerationError
 
-load_dotenv()
 
 
 def generate_lessons(json_file_path, output_directory):
