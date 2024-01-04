@@ -9,11 +9,12 @@ def json_to_mdx(lesson_data):
     mdx_content.append(f"title: {lesson_data['title']}\n")
     mdx_content.append(f"description: {lesson_data['description']}\n")
     mdx_content.append(f"date:  {datetime.datetime.now().strftime('%Y-%m-%d')}\n")
-    mdx_content.append("---\n")
+    mdx_content.append(f"{lesson_data['generated_vocabulary']}\n")
+    mdx_content.append("---\n\n")
 
     for section in lesson_data["sections"]:
         mdx_content.append(f"## {section['title']}\n")
-        mdx_content.append(f"{section['generated_content']}\n")
+        mdx_content.append(f"{section['generated_content']}\n\n")
 
     return "".join(mdx_content)
 

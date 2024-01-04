@@ -15,7 +15,7 @@
             }
         ],
         "vocabulary": {
-            "words": ["jirafa", "huevo", "guerra", "cielo", "año"],
+            "words": ["jarro", "huarache", "chorizo", "cerebro", "pequeño"],
             "properties": ["translation", "exampleSentence", "exampleTranslation", "gender"]
         }
     }
