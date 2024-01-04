@@ -6,12 +6,14 @@
             {
                 "title": "Introduction",
                 "about": "A Welcome message to this lesson",
-                "components": []
+                "components": [],
+                "elements": []
             },
             {
                 "title": "Section 1: The Tricky 'J' Sound",
                 "about": "Explain the letter of the sound J in spanish, provide examples and a great explanation",
-                "components": ["Mnemonic", "TextToSpeechPlayer"]
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
             }
         ],
         "vocabulary": {
