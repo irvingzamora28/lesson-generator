@@ -1,11 +1,24 @@
 import questionary
 import os
 
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) 
+
 def is_valid_file_path(file_path):
-    return os.path.isfile(file_path) or 'Please enter a valid file path.'
+    if os.path.isfile(file_path):
+        return True
+    elif os.path.isfile(os.path.join(ROOT_DIR, file_path)):
+        return True
+    else:
+        return 'Please enter a valid file path.'
 
 def is_valid_directory(val):
-    return os.path.isdir(val) or 'Please enter a valid directory.'
+    if os.path.isdir(val):
+        return True
+    elif os.path.isdir(os.path.join(ROOT_DIR, val)):
+        return True
+    else:
+        return 'Please enter a valid directory.'
 
 questions = [
     {
