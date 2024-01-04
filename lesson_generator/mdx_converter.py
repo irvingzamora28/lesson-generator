@@ -20,7 +20,9 @@ def json_to_mdx(lesson_data):
 
 
 def save_mdx_file(lesson_data, output_directory):
-    lesson_title_sanitized = lesson_data["title"].replace(" ", "_").replace("/", "_")
+    lesson_title_sanitized = (
+        lesson_data["title"].replace(" ", "_").replace("/", "_").lower()
+    )
     file_path = os.path.join(output_directory, f"{lesson_title_sanitized}.mdx")
 
     mdx_content = json_to_mdx(lesson_data)
