@@ -21,11 +21,20 @@ def generate_content(lesson_title, section_title, prompt, max_tokens=150):
         "messages": [
             {
                 "role": "system",
-                "content": f"You are a great educator and know very well how to teach in easy steps. You know very well how to output format in MDX. The output you are generatting is in english.",
+                "content": f"""You are a great educator and know very well how to teach in easy steps. 
+                           You know very well how to output format in MDX. 
+                           The output you are generating is in English.""",
             },
             {
                 "role": "user",
-                "content": f"You are going to generate content for the lesson with the title {lesson_title}, but you are going to generate only a section, the section you are going to generate is {section_title}. Generate the content for this section based on the prompt {prompt}. Generate the content and only the content in an MDX format. Do not include text about what you did, your thought proccess or any other messages, just the generated content in MDX format. Also omit the title of the lesson and the title of the section, just provide the content.",
+                "content": f"""You are going to generate content for the lesson with the title {lesson_title}, 
+                           but you are going to generate only a section, the section you are going to generate is {section_title}. 
+                           Generate the content for this section based on the prompt {prompt}. 
+                           Generate the content and only the content in an MDX format. 
+                           Do not include text about what you did, your thought process or any other messages, 
+                           just the generated content in MDX format. 
+                           Also omit the title of the lesson and the title of the section, just provide the content. 
+                           You can generate tables if you think the section needs one for better structure of the explanation or examples you give.""",
             },
         ],
     }
