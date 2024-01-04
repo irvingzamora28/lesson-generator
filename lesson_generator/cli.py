@@ -16,16 +16,18 @@ def generate_lessons(json_file_path, output_directory):
         setup_i18n(language)
         lessons_data = process_json_file(json_file_path)
         for lesson in lessons_data:
+            lesson_title = lesson['title']
             print(f"Generating content for lesson: {lesson['title']}")
             for section in lesson['sections']:
+                section_title = section['title']
                 try:
                     prompt = section['about']
-                    generated_content = generate_content(prompt)
+                    generated_content = generate_content(lesson_title, section_title, prompt)
                     section['generated_content'] = generated_content
-                    print(f"Generated section: {section['title']}")
+                    print(f"Generated section: {section_title}")
                     print(f"Generated content: {section['generated_content']}")
                 except Exception as e:
-                    print(f"Error generating content for section: {section['title']}. Error: {e}")
+                    print(f"Error generating content for section: {section_title}. Error: {e}")
         save_to_directory(lessons_data, output_directory)
     except LessonGenerationError as e:
         logger.error(f"Lesson generation failed: {e}")
