@@ -20,10 +20,11 @@ def generate_lessons(json_file_path, output_directory):
             print(f"Generating content for lesson: {lesson['title']}")
             for section in lesson["sections"]:
                 section_title = section["title"]
+                section_components = section.get("components", [])
                 try:
                     prompt = section["about"]
                     generated_content = generate_content(
-                        lesson_title, section_title, prompt
+                        lesson_title, section_title, section_components, prompt
                     )
                     section["generated_content"] = generated_content
                     print(f"Generated section: {section_title}")

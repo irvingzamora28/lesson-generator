@@ -12,10 +12,37 @@ HEADERS = {
 }
 
 
-def generate_content(lesson_title, section_title, prompt, max_tokens=150):
+def generate_content(
+    lesson_title, section_title, section_components, prompt, max_tokens=150
+):
     ai_assistant_message = t("message.ai_assistant_message")
     user_instruction = t("message.instruction", prompt=prompt)
+    components_string = ", ".join(section_components)
+    print(
+        f"Generating content for section: {section_title} with components: {components_string}"
+    )
+    components_info = f"""
+    When generating the content you have a few components that you can incorporate, these components are useful building blocks for explanations and are used differently depending on the lesson content and context.
+    I' will give you the list of components available and what their use is for:
+    1. TextToSpeechPlayer
+    Purpose: The TextToSpeechPlayer component is used to incorporate an audio player in the lesson content. This component plays a pronunciation guide or the examples shown in the lesson.
+    Usage: It requires a parameter indicating the source of the audio file, usually a path to the audio file relative to the lesson content directory.
+    Example usage: <TextToSpeechPlayer mp3File={{/src/assets/courses/spanish/_shared/lessons/lesson2/audio/tricky-j.mp3}} />
+    2. TipBox
+    Purpose: The TipBox component is used to highlight tips, notes, or important information in a visually distinct box. It's used to draw the learner's attention to key points, suggestions, or additional information that can aid understanding or retention of the lesson material.
+    Usage: It encloses a piece of text or a list of items that are presented as bullet points. This component helps in breaking the monotony of the lesson text and making the content more engaging.
+    Example usage: <TipBox>
+        - **Pronunciation Practice**: Listen to native speakers and try to imitate the sounds.
+        - **Patience**: Some sounds take time to master, so keep practicing regularly. 
+        - **Record Yourself**: Recording and listening to yourself can be a great way to notice and correct your pronunciation.
+        </TipBox>
+    3. Mnemonic
+    Purpose: The Mnemonic component is used to provide mnemonic devices or memory aids. Mnemonics are techniques a person can use to help them improve their ability to remember something, making it easier for learners to remember terms, grammar rules, or concepts.
+    Usage: It contains a title and a text or phrase that makes learning and recalling specific information easier. This component is especially useful in language learning for memorizing vocabulary, verb conjugations, and other grammar rules.
+    Example usage: <Mnemonic title={{A suitable title}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
 
+    In the content of this lesson, you must use the following components: {components_string}, and remember how they are used, the parameters expected and the correct format.
+    """
     data = {
         "model": "gpt-3.5-turbo-1106",
         "messages": [
@@ -28,14 +55,15 @@ def generate_content(lesson_title, section_title, prompt, max_tokens=150):
             {
                 "role": "user",
                 "content": f"""You are going to generate content for the lesson with the title {lesson_title}, 
-                           but you are going to generate only a section, the section you are going to generate is {section_title}. 
-                           Generate the content for this section based on the prompt {prompt}. 
-                           Generate the content and only the content in an MDX format. 
-                           Do not include text about what you did, your thought process or any other messages, 
-                           just the generated content in MDX format. 
-                           Also omit the title of the lesson and the title of the section, just provide the content. 
-                           You can generate tables if you think the section needs one for better structure of the explanation or examples you give.
-                           Do not format the output with ```markdown, ```mdx or anything like that.""",
+                    but you are going to generate only a section, the section you are going to generate is {section_title}. 
+                    Generate the content for this section based on the prompt {prompt}. 
+                    Generate the content and only the content in an MDX format. 
+                    Do not include text about what you did, your thought process or any other messages, 
+                    just the generated content in MDX format. 
+                    Also omit the title of the lesson and the title of the section, just provide the content. 
+                    You can generate tables if you think the section needs one for better structure of the explanation or examples you give.
+                    {components_info if components_string else ''}
+                    Do not format the output with ```markdown, ```mdx or anything like that.""",
             },
         ],
     }
