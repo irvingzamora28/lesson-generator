@@ -43,7 +43,7 @@ questions = [
         'message': 'Enter the directory where you want the lessons to be saved:',
         'when': lambda answers: answers['action'] == 'Generate lessons',
         'validate': is_valid_directory,
-        'default': lambda _: './output'
+        'default': lambda _: './sample_output'
     }
 ]
 

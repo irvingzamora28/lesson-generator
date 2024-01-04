@@ -14,3 +14,5 @@ venv/
 *.log
 
 .env
+
+sample_output/
