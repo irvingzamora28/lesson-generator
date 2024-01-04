@@ -12,7 +12,7 @@ def json_to_mdx(lesson_data):
         mdx_content.append(f"## {section['title']}")
         mdx_content.append(f"{section['generated_content']}")
 
-    return "".join(mdx_content)
+    return "".join(mdx_content)    
 
 def save_mdx_file(lesson_data, output_directory):
     lesson_title_sanitized = lesson_data['title'].replace(' ', '_').replace('/', '_')

@@ -5,12 +5,12 @@
         "sections": [
             {
                 "title": "Introduction",
-                "content": "A Welcome message to the lesson...",
+                "about": "A Welcome message to the lesson...",
                 "components": []
             },
             {
                 "title": "Section 1: The Tricky 'J' Sound",
-                "content": "Explain the letter of the sound J in spanish, provide examples and a great explanation",
+                "about": "Explain the letter of the sound J in spanish, provide examples and a great explanation",
                 "components": ["Mnemonic", "TextToSpeechPlayer"]
             }
         ],

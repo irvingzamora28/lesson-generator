@@ -17,7 +17,7 @@ LESSON_SCHEMA = {
                         "title": {
                             "type": "string"
                         },
-                        "content": {
+                        "about": {
                             "type": "string"
                         },
                         "components": {
@@ -27,7 +27,7 @@ LESSON_SCHEMA = {
                             }
                         }
                     },
-                    "required": ["title", "content", "components"]
+                    "required": ["title", "about", "components"]
                 }
             },
             "vocabulary": {
