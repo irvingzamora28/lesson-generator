@@ -2,7 +2,11 @@ import sys
 import os
 import json
 from lesson_generator.i18n_setup import setup_i18n
-from lesson_generator.openai_api import generate_content, generate_vocabulary
+from lesson_generator.openai_api import (
+    generate_content,
+    generate_json_audio_text,
+    generate_vocabulary,
+)
 from lesson_generator.json_loader import process_json_file
 from lesson_generator.embed_components import embed_components_in_sections
 from lesson_generator.log import logger
@@ -22,6 +26,9 @@ def generate_lessons(json_file_path, output_directory):
                 section_title = section["title"]
                 section_components = section.get("components", [])
                 section_elements = section.get("elements", [])
+                logger.info(
+                    f"Generating section: {section_title} with components: {', '.join(section_components)}"
+                )
                 try:
                     prompt = section["about"]
                     generated_content = generate_content(
@@ -32,10 +39,12 @@ def generate_lessons(json_file_path, output_directory):
                         prompt,
                     )
                     section["generated_content"] = generated_content
-                    logger.info(
-                        f"Generated section: {section_title} with components: {', '.join(section_components)}"
-                    )
                     logger.info(f"Generated content: {section['generated_content']}")
+                    if "TextToSpeechPlayer" in section_components:
+                        generated_json_audio_text = generate_json_audio_text(
+                            generated_content
+                        )
+                        section["generated_json_audio_text"] = generated_json_audio_text
                 except Exception as e:
                     logger.error(
                         f"Error generating content for section: {section_title}. Error: {e}"

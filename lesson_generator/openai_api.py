@@ -94,6 +94,109 @@ def generate_content(
         )
 
 
+def generate_json_audio_text(section_content):
+    data = {
+        "model": "gpt-3.5-turbo-1106",
+        "messages": [
+            {
+                "role": "system",
+                "content": f"""You are a great educator and know very well how to teach in easy steps. 
+                           The output you are generating is in mostly in spanish.""",
+            },
+            {
+                "role": "user",
+                "content": f"""You are going to generate a json string, this is going to have two properties, text and audio_file_name.
+                The text is going to be the text from the examples of the lesson, the audio_file_name is going to be the name of the file name. I will show you an example:
+                If the input is the following:
+                ## Section 1: The Tricky 'J' Sound
+                The letter 'j' in Spanish is pronounced like the 'h' in "hot" in English but stronger and comes from deep in the throat. It's a guttural sound that is distinct in words like "jirafa" (giraffe).
+                Practice words:
+
+                | Word   | Pronunciation |
+                | ------ | ------------- |
+                | Jirafa | hee-rah-fah   |
+                | Jugo   | hoo-goh       |
+                | Joven  | hoh-vehn      |
+                | Jardín | hahr-deen     |
+                | Caja   | kah-hah       |
+
+                <Mnemonic title={{Mnemonic}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
+
+                <TextToSpeechPlayer mp3File={{/src/assets/courses/spanish/_shared/lessons/lesson2/audio/tricky-j.mp3}} />
+                
+                The output should be the following:
+                
+                {{
+                    'text': 'Jirafa ... Jugo ... Joven ... Jardín ... Caja',
+                    'audio_file_name': 'tricky-j.mp3'
+                }}
+                
+                Another example, if the input is the following:
+                ## Section 3: Pronouns
+
+                Pronouns replace nouns and are used frequently in everyday conversation. They must match the gender and number of the noun they replace.
+
+                ### Subject Pronouns
+
+                | Pronoun (English) | Pronoun (Spanish) | Example Sentence                        |
+                | ----------------- | ----------------- | --------------------------------------- |
+                | I                 | Yo                | Yo soy estudiante.                      |
+                | You (informal)    | Tú                | ¿Tú eres el profesor?                   |
+                | He/She/           | Él/Ella           | Él es mi hermano. Ella es mi hermana.   |
+                | You formal        | Usted             | ¿Cómo está usted?                       |
+                | You plural        | Ustedes           | Ustedes son amables.                    |
+                | We                | Nosotros/Nosotras | Nosotros estudiamos español.            |
+                | They              | Ellos/Ellas       | Ellos hablan español. Ellas también.    |
+                | It                | Eso/Esa           | Eso es interesante. Esa casa es bonita. |
+
+                <TextToSpeechPlayer mp3File={{/src/assets/courses/spanish/_shared/lessons/lesson5/audio/subject-pronouns.mp3}} />
+
+                Explanation on How to Use Pronouns:
+
+                Pronouns in Spanish replace nouns and agree with the gender and number of the noun they replace. Understanding subject pronouns is essential for constructing sentences as they often come at the beginning. Subject pronouns indicate who is doing the action.
+
+                To form subject pronouns, simply use them in place of the person's name or the noun.
+                
+                The output shoudl be the following:
+                
+                {{
+                    'text': 'Yo soy estudiante ... ¿Tú eres el profesor? ... Él es mi hermano. Ella es mi hermana ... ¿Cómo está usted? ... Ustedes son amables ... Nosotros estudiamos español ... Ellos hablan español. Ellas también ... Eso es interesante. Esa casa es bonita',
+                    'audio_file_name': 'subject-pronouns.mp3'
+                }}
+                
+                Notice that the text property contains the text of the concepts the learner needs to understand concatenated with ' ... ' in between to separate the examples.
+                The audio_file_name contains the name of the audio file for that section.
+                
+                
+                Generate the json for this section based on the following content: 
+                {section_content}. 
+                Generate the json string and only the json string in json format. 
+                Do not include text about what you did, your thought process or any other messages, 
+                just the generated string in json format. 
+                Do not format the output with ```markdown, ```mdx or anything like that.""",
+            },
+        ],
+    }
+
+    try:
+        response = requests.post(OPENAI_API_URL, headers=HEADERS, json=data)
+        response.raise_for_status()
+        response_data = response.json()
+        generated_text = response_data.get("choices")[0]["message"]["content"].strip()
+        return generated_text
+    except requests.HTTPError as http_err:
+        logger.error(f"HTTP error occurred: {http_err}")
+        raise LessonGenerationError("OpenAI API request failed: HTTP error occurred")
+    except requests.RequestException as req_err:
+        logger.error(f"Request error occurred: {req_err}")
+        raise LessonGenerationError("OpenAI API request failed: Request error occurred")
+    except Exception as e:
+        logger.error(f"Error during OpenAI API call: {e}")
+        raise LessonGenerationError(
+            "OpenAI API request failed: Unexpected error occurred"
+        )
+
+
 def generate_vocabulary(lesson_title, vocabulary_words, properties):
     vocabulary_string = ", ".join(vocabulary_words)
     properties_string = ", ".join(properties)
