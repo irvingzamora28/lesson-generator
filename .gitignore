@@ -1,0 +1,14 @@
+*.py[cod]
+*__pycache__
+*~
+.DS_Store
+
+# Virtual environment
+venv/
+
+# IDE specific
+.idea/
+.vscode/
+
+# Log files
+*.log

@@ -1,0 +1,15 @@
+[
+    {
+        "title": 12345,
+        "description": "This is a lesson without necessary sections and vocabulary fields",
+        "extraField": "This field is not defined in the schema"
+    },
+    {
+        "title": "Lesson with incorrect sections",
+        "description": "This lesson has incorrect sections data",
+        "sections": "This should be an array, not a string",
+        "vocabulary": {
+            "words": "This should be an array"
+        }
+    }
+]

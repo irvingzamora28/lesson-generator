@@ -1,0 +1,36 @@
+{
+    "title": "Lesson 2 Specific Pronunciation Challenges",
+    "description": "Basics of Spanish language",
+    "sections": [
+        {
+            "title": "Introduction",
+            "content": "A Welcome message to the lesson...",
+            "components": [],
+            "generated_content": "Certainly! Here's an example of a welcome message to the lesson in MDX format:\n\n```mdx\n# Welcome to the Lesson\n\nHello there! Welcome to our lesson on [Topic]. In this session, we will explore the key concepts and principles related to [Topic]. I'm excited to guide you through this learning journey and help you gain a deeper understanding of the subject.\n\nLet's dive in and start exploring the fascinating world of [Topic]. I'm here to support you every step of the way, so feel free to ask any questions and participate actively in the discussions.\n\nHappy learning!\n```"
+        },
+        {
+            "title": "Section 1: The Tricky 'J' Sound",
+            "content": "Explain the letter of the sound J in spanish, provide examples and a great explanation",
+            "components": [
+                "Mnemonic",
+                "TextToSpeechPlayer"
+            ],
+            "generated_content": "<TextToSpeechPlayer><Mnemonic>Certainly! When explaining the sound of the letter \"J\" in Spanish, it's important to note that it is represented by the phoneme /x/ (voiced velar fricative) in International Phonetic Alphabet (IPA). This sound is similar to the \"ch\" sound in the Scottish word \"loch\" or the German word \"Bach.\"\n\nHere's a breakdown of the explanation in MDX format:\n\n```mdx\n# Sound of the Letter \"J\" in Spanish\n\nThe letter \"J\" in Spanish is pronounced as the phoneme /x/ which is a voiced velar fricative sound. This sound is produced by placing the back of the tongue against the back of the roof of the mouth while allowing the air to pass through with a friction-like noise.\n\n## Examples\n\n- \"Juego\" (game)\n- \"Jirafa\" (giraffe)\n- \"Juventud\" (youth)\n- \"Junio\" (June)\n\n## Explanation\n\nTo pronounce the sound of \"J\" correctly, position the back of your tongue against the back of the roof of your mouth, and then force the air through the narrow space to create the friction-like sound. It's important to note that the sound of \"J\" in Spanish is distinct from the English \"J\" sound, which is similar to the letter \"H\" in Spanish.\n\nBy practicing the pronunciation of words containing the letter \"J,\" individuals can improve their ability to produce the /x/ sound accurately in Spanish.\n\nRemember that consistent practice and attentive listening are key to mastering the sound of \"J\" in Spanish.\n```\n\nThis MDX format provides a structured explanation of the sound of the letter \"J\" in Spanish, along with examples and a clear guide for pronunciation.</Mnemonic></TextToSpeechPlayer>"
+        }
+    ],
+    "vocabulary": {
+        "words": [
+            "jirafa",
+            "huevo",
+            "guerra",
+            "cielo",
+            "año"
+        ],
+        "properties": [
+            "translation",
+            "exampleSentence",
+            "exampleTranslation",
+            "gender"
+        ]
+    }
+}

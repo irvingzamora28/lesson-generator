@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Lesson 2 Specific Pronunciation Challenges",
+        "description": "Basics of Spanish language",
+        "sections": [
+            {
+                "title": "Introduction",
+                "content": "A Welcome message to the lesson...",
+                "components": []
+            },
+            {
+                "title": "Section 1: The Tricky 'J' Sound",
+                "content": "Explain the letter of the sound J in spanish, provide examples and a great explanation",
+                "components": ["Mnemonic", "TextToSpeechPlayer"]
+            }
+        ],
+        "vocabulary": {
+            "words": ["jirafa", "huevo", "guerra", "cielo", "año"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "gender"]
+        }
+    }
+]
