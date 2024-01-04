@@ -17,23 +17,30 @@ def generate_lessons(json_file_path, output_directory):
         for lesson in lessons_data:
             lesson_title = lesson["title"]
             vocabulary = lesson["vocabulary"]
-            print(f"Generating content for lesson: {lesson['title']}")
+            logger.info(f"Generating content for lesson: {lesson['title']}")
             for section in lesson["sections"]:
                 section_title = section["title"]
                 section_components = section.get("components", [])
+                section_elements = section.get("elements", [])
                 try:
                     prompt = section["about"]
                     generated_content = generate_content(
-                        lesson_title, section_title, section_components, prompt
+                        lesson_title,
+                        section_title,
+                        section_components,
+                        section_elements,
+                        prompt,
                     )
                     section["generated_content"] = generated_content
-                    print(f"Generated section: {section_title}")
-                    print(f"Generated content: {section['generated_content']}")
+                    logger.info(
+                        f"Generated section: {section_title} with components: {', '.join(section_components)}"
+                    )
+                    logger.info(f"Generated content: {section['generated_content']}")
                 except Exception as e:
-                    print(
+                    logger.error(
                         f"Error generating content for section: {section_title}. Error: {e}"
                     )
-            print(f"Generating vocabulary : {vocabulary['words']}")
+            logger.info(f"Generating vocabulary : {vocabulary['words']}")
             generated_vocabulary = generate_vocabulary(
                 lesson_title, vocabulary["words"], vocabulary["properties"]
             )

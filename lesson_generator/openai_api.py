@@ -13,15 +13,19 @@ HEADERS = {
 
 
 def generate_content(
-    lesson_title, section_title, section_components, prompt, max_tokens=150
+    lesson_title,
+    section_title,
+    section_components,
+    section_elements,
+    prompt,
+    max_tokens=150,
 ):
     ai_assistant_message = t("message.ai_assistant_message")
     user_instruction = t("message.instruction", prompt=prompt)
     components_string = ", ".join(section_components)
-    print(
-        f"Generating content for section: {section_title} with components: {components_string}"
-    )
-    components_info = f"""
+    elements_string = ", ".join(section_elements)
+
+    components_prompt = f"""
     When generating the content you have a few components that you can incorporate, these components are useful building blocks for explanations and are used differently depending on the lesson content and context.
     I' will give you the list of components available and what their use is for:
     1. TextToSpeechPlayer
@@ -43,6 +47,9 @@ def generate_content(
 
     In the content of this lesson, you must use the following components: {components_string}, and remember how they are used, the parameters expected and the correct format.
     """
+
+    elements_prompt = f"""MDX supports different components like ordered lists, unordered lists, tables, etc. In this section, you must incorporate the following elements: {elements_string}.
+    """
     data = {
         "model": "gpt-3.5-turbo-1106",
         "messages": [
@@ -61,8 +68,8 @@ def generate_content(
                     Do not include text about what you did, your thought process or any other messages, 
                     just the generated content in MDX format. 
                     Also omit the title of the lesson and the title of the section, just provide the content. 
-                    You can generate tables if you think the section needs one for better structure of the explanation or examples you give.
-                    {components_info if components_string else ''}
+                    {elements_prompt if elements_string else ''}
+                    {components_prompt if components_string else ''}
                     Do not format the output with ```markdown, ```mdx or anything like that.""",
             },
         ],
