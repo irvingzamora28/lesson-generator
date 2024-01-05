@@ -73,6 +73,10 @@ def save_to_directory(lessons_data_with_generated_content, output_directory):
 
         save_mdx_file(lesson, output_directory)
 
+        from lesson_generator.json_processor import save_json_file
+
+        save_json_file(lesson, output_directory)
+
 
 def main():
     from lesson_generator.cli_interface import main as cli_interface_main

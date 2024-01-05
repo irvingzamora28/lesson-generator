@@ -26,29 +26,36 @@ def generate_content(
     elements_string = ", ".join(section_elements)
 
     components_prompt = f"""
-    When generating the content you have a few components that you can incorporate, these components are useful building blocks for explanations and are used differently depending on the lesson content and context.
-    I' will give you the list of components available and what their use is for:
+    When generating the content you have a few JSX components that you can incorporate, these components are useful building blocks for explanations and are used differently depending on the lesson content and context.
+    I' will give you the list of JSX components available and what their use is for:
+    
     1. TextToSpeechPlayer
-    Purpose: The TextToSpeechPlayer component is used to incorporate an audio player in the lesson content. This component plays a pronunciation guide or the examples shown in the lesson.
+    Purpose: The TextToSpeechPlayer JSX component is used to incorporate an audio player in the lesson content. This component plays a pronunciation guide or the examples shown in the lesson.
     Usage: It requires a parameter indicating the source of the audio file, usually a path to the audio file relative to the lesson content directory.
     Example usage: <TextToSpeechPlayer mp3File={{/src/assets/courses/spanish/_shared/lessons/lesson2/audio/tricky-j.mp3}} />
+    
     2. TipBox
-    Purpose: The TipBox component is used to highlight tips, notes, or important information in a visually distinct box. It's used to draw the learner's attention to key points, suggestions, or additional information that can aid understanding or retention of the lesson material.
-    Usage: It encloses a piece of text or a list of items that are presented as bullet points. This component helps in breaking the monotony of the lesson text and making the content more engaging.
-    Example usage: <TipBox>
+    Purpose: The TipBox JSX component is used to highlight tips, notes, or important information in a visually distinct box. It's used to draw the learner's attention to key points, suggestions, or additional information that can aid understanding or retention of the lesson material.
+    Usage: It does not take any parameter, but it has an opening and closing tag, the component nencloses a piece of text or a list of items that are presented as bullet points. This component helps in breaking the monotony of the lesson text and making the content more engaging.
+    Example usage: 
+        <TipBox>
         - **Pronunciation Practice**: Listen to native speakers and try to imitate the sounds.
         - **Patience**: Some sounds take time to master, so keep practicing regularly. 
         - **Record Yourself**: Recording and listening to yourself can be a great way to notice and correct your pronunciation.
         </TipBox>
     3. Mnemonic
-    Purpose: The Mnemonic component is used to provide mnemonic devices or memory aids. Mnemonics are techniques a person can use to help them improve their ability to remember something, making it easier for learners to remember terms, grammar rules, or concepts.
-    Usage: It contains a title and a text or phrase that makes learning and recalling specific information easier. This component is especially useful in language learning for memorizing vocabulary, verb conjugations, and other grammar rules.
+    Purpose: The Mnemonic JSX component is used to provide mnemonic devices or memory aids. Mnemonics are techniques a person can use to help them improve their ability to remember something, making it easier for learners to remember terms, grammar rules, or concepts.
+    Usage: It contains a property called title and a property called content, which is a text or phrase that makes learning and recalling specific information easier. This component is especially useful in language learning for memorizing vocabulary, verb conjugations, and other grammar rules.
     Example usage: <Mnemonic title={{A suitable title}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
 
     In the content of this lesson, you must use the following components: {components_string}, and remember how they are used, the parameters expected and the correct format.
     """
 
-    elements_prompt = f"""MDX supports different components like ordered lists, unordered lists, tables, etc. In this section, you must incorporate the following elements: {elements_string}.
+    elements_prompt = f"""MDX supports different components like ordered lists, unordered lists, tables, etc. 
+    Use the ordered lists in a correct manner.
+    Use the tables in a correct manner to provide examples and explain contetn very well, do not place components or complex explanation on tables.
+    ANy of the elements you are asked to incorporate, try to use more than 4 items or examples.
+    In this section, you must incorporate the following elements and only these elements: {elements_string}.
     """
     data = {
         "model": "gpt-3.5-turbo-1106",
@@ -165,6 +172,8 @@ def generate_json_audio_text(section_content):
                 }}
                 
                 Notice that the text property contains the text of the concepts the learner needs to understand concatenated with ' ... ' in between to separate the examples.
+                Notice that the text property does not contain any extra text like headings or explanations.
+                Notice that the text property containts only and excluselively text or phrases in spanish.
                 The audio_file_name contains the name of the audio file for that section.
                 
                 
