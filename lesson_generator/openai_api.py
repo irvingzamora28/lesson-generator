@@ -25,82 +25,112 @@ def generate_content(
     components_string = ", ".join(section_components)
     elements_string = ", ".join(section_elements)
 
-    components_prompt = f"""
-    When generating the content you have a few JSX components that you can incorporate, these components are useful building blocks for explanations and are used differently depending on the lesson content and context.
-    I' will give you the list of JSX components available and what their use is for:
+    components_instructions = """
+    You are creating an MDX-JSX file for educational purposes. Make sure to use the JSX components naturally and correctly within the educational content:
+
+    - TextToSpeechPlayer: This component embeds audio related to the lesson. Use it without any title or explicit announcement. Just insert it where the audio example is necessary. Format: <TextToSpeechPlayer mp3File="relative_path_to_audio_file" />. Ensure the path is relevant to the content discussed.
+
+    - TipBox: This component highlights key tips or important notes within the content. It should encapsulate a list of tips or a single tip directly, without any preceding title like "Tip:". Format: <TipBox>Here goes the tip or a list of tips.</TipBox>. It should be used to emphasize crucial points or suggestions naturally within the flow of the content.
+
+    - Mnemonic: This component provides mnemonic aids for learning. Include it directly where the mnemonic aid is relevant to the lesson content. Do not precede it with any titles or introductions. It should appear as a natural part of the educational narrative. Format: <Mnemonic content="mnemonic_phrase" />. Ensure the content is helpful and relevant to the associated topic.
     
-    1. TextToSpeechPlayer
-    Purpose: The TextToSpeechPlayer JSX component is used to incorporate an audio player in the lesson content. This component plays a pronunciation guide or the examples shown in the lesson.
-    Usage: It requires a parameter indicating the source of the audio file, usually a path to the audio file relative to the lesson content directory.
-    Example usage: <TextToSpeechPlayer mp3File={{/src/assets/courses/spanish/_shared/lessons/lesson2/audio/tricky-j.mp3}} />
-    Note: This is the only way to use it, do not combine it with other elements or other JSX Components.
+    An example of a section that uses correctly all JSX components is the following:
     
-    2. TipBox
-    Purpose: The TipBox JSX component is used to highlight tips, notes, or important information in a visually distinct box. It's used to draw the learner's attention to key points, suggestions, or additional information that can aid understanding or retention of the lesson material.
-    Usage: It does not take any parameter, but it has an opening and closing tag, the component nencloses a piece of text or a list of items that are presented as bullet points. This component helps in breaking the monotony of the lesson text and making the content more engaging.
-    Example usage: 
-        <TipBox>
-        - **Pronunciation Practice**: Listen to native speakers and try to imitate the sounds.
-        - **Patience**: Some sounds take time to master, so keep practicing regularly. 
-        - **Record Yourself**: Recording and listening to yourself can be a great way to notice and correct your pronunciation.
-        </TipBox>
-    Note: This is the only way to use it, do not combine it with other elements or other JSX Components.
+    ## Section 2: Articles
+
+    Articles in Spanish must agree in gender and number with the noun they accompany. There are definite articles (the) and indefinite articles (a, an).
+
+    ### Definite Articles
+
+    | English         | Spanish Singular | Spanish Plural | Example Sentence     |
+    | --------------- | ---------------- | -------------- | -------------------- |
+    | The (masculine) | El               | Los            | El libro, Los libros |
+    | The (feminine)  | La               | Las            | La casa, Las casas   |
+
+    ### Indefinite Articles
+
+    | English       | Spanish Singular | Spanish Plural | Example Sentence      |
+    | ------------- | ---------------- | -------------- | --------------------- |
+    | A (masculine) | Un               | Unos           | Un libro, Unos libros |
+    | A (feminine)  | Una              | Unas           | Una casa, Unas casas  |
+
+    <TextToSpeechPlayer mp3File="/src/assets/courses/spanish/_shared/lessons/lesson5/audio/articles.mp3" />
+
+    Explanation on How to Form Articles:
+
+    The articles in Spanish change based on the gender (masculine or feminine) and number (singular or plural) of the noun they precede. Definite articles are used for specific items known to the speaker ('the' in English), while indefinite articles are used for nonspecific items ('a,' 'an,' or 'some' in English). To form the correct article, first, identify the gender and number of the noun, then choose the corresponding article:
+
+    Use "el" for masculine singular, "los" for masculine plural.
+    Use "la" for feminine singular, "las" for feminine plural.
+    Use "un" for masculine singular, "unos" for masculine plural.
+    Use "una" for feminine singular, "unas" for feminine plural.
+
+    <Mnemonic title="Definite Articles" content="El is E for masculine singular, La is L for feminine singular, Los is plural masculine, Las is plural feminine" />
+
+    <TipBox>
+    Remember:
+    - Pronouns replace nouns in a sentence
+    </TipBox>
+
+    ___
     
-    3. Mnemonic
-    Purpose: The Mnemonic JSX component is used to provide mnemonic devices or memory aids. Mnemonics are techniques a person can use to help them improve their ability to remember something, making it easier for learners to remember terms, grammar rules, or concepts.
-    Usage: It contains a property called title and a property called content, which is a text or phrase that makes learning and recalling specific information easier. This component is especially useful in language learning for memorizing vocabulary, verb conjugations, and other grammar rules.
-    Example usage: <Mnemonic title={{A suitable title}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
-    Note: This is the only way to use it, do not combine it with other elements or other JSX Components.
-    Note: If you are asked to use the Mnemonic JSX component, use it only once and in the correct format as shown in the example.
-    Note: If you are asked to use the Mnemonic JSX component, and there is something that you considerer needs a mneumonic device, use the Mnemonic component, do not use any other format like plain text or other components.
-    Wrong ways of proving a Mnemonic:
--   **Mnemonic**: Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher. This visualization can help in producing the correct sound.
-    | Mnemonic | content |
-    | The sound | Think of the sound...|
-    - **Mnemonic:** 
-    - **Title:** Guttural 'J' Sound
-    - **Content:** Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.
-    The right way and only way to provide a Mnemonic is the following:
-    <Mnemonic title={{Guttural 'J' Sound}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
-    
-    Note: Do not tell you are going to use a JSX component or do not mention the JSX component, just use the JSX component wherever is pertinent. For example, if you are explaining a concept that needs a mnemonic, directly use the mnemonic JSX component without mentioning you are going to use it or putting a title before the JSX component announcing you are using it.
-    For example, DO NOT do this:
-    ### Mnemonic:
-    <Mnemonic title={{Guttural 'J' Sound}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
-    
-    In the content of this lesson, you must use the following JSX components: {components_string}, and remember how they are used, the parameters expected and the correct format.
+    IMPORTANT: Each component MUST be used correctly into the content, appropriately and naturally. Avoid misuse or incorrect parameterization of these components.
     """
 
-    elements_prompt = f"""MDX supports different elements like ordered lists, unordered lists, tables, etc. 
-    Use the ordered lists in a correct manner.
-    Use the tables in a correct manner to provide examples and explain contetn very well, do not place JSX components or complex explanation on tables.
-    Any of the elements you are asked to incorporate, try to use more than 4 items or examples.
-    Note: Do not try to combine elements or JSX components in an unnatural way just for the sake of using them. Focus on quality over quantity.
-    Note: If you are going to use tables, provide examles in a clear and easy to understand manner without overly complex explanations.
-    Note: Do not put any JSX components inside the table. Do not list any JSX components.
-    In this section, you must incorporate the following elements and only these elements: {elements_string}.
+    user_message = f"""
+    Generate content for the lesson titled "{lesson_title}", specifically the section titled "{section_title}". 
+    The content should be clear, instructional, and engaging, formatted in MDX with natural integration of the specified JSX components and MDX elements. 
+    Avoid creating content as a React component or any form of software code. Instead, focus on the narrative and educational material suitable for students. 
+    {components_instructions if components_string else ''}
+    Remember, the content should not include explicit titles or annotations for the components, and avoid redundancy or unnecessary repetition. Provide only the generated content in MDX format.
     """
+
+    elements_instructions = """
+    MDX elements refer to markdown elements like headers, lists, and tables used to structure the content. Use the specified elements to organize the content clearly and effectively.
+    For instance, use tables to compare words or show translation and concise examples. When using tables use more than 3 columns and 3 rows for meaningful content.
+    A good example of the table use is the following:
+    | Noun (English)  | Noun (Spanish) | Gender    | Example Sentence                  |
+    | --------------- | -------------- | --------- | --------------------------------- |
+    | Friend          | Amigo          | Masculine | Mi amigo es alto.                 |
+    | Book            | Libro          | Masculine | El libro está en la mesa.         |
+    | Friend (female) | Amiga          | Feminine  | Mi amiga es inteligente.          |
+    | House           | Casa           | Feminine  | La casa es grande.                |
+    | Table           | Mesa           | Feminine  | Hay una mesa en la cocina.        |
+    | Chair           | Silla          | Feminine  | Hay una silla en la sala.         |
+    | Desk            | Escritorio     | Masculine | El escritorio está en la oficina. |
+    
+    Use list items for steps or tips, and ensure that the usage of these elements is directly relevant to the educational material. If an element like a table or list is mentioned, it must be used accordingly. Ensure each element enhances the lesson's educational value and readability.
+    """
+
+    content_instruction = f"""Generate the section content based on the prompt: {prompt}. Ensure the content is instructional and engaging. The content should be directly relevant to the lesson subject and formatted in MDX."""
+
+    user_message = f"""
+    You are going to generate content for the lesson titled "{lesson_title}", specifically the section titled "{section_title}". 
+    {content_instruction}
+    """
+
+    if components_string:
+        user_message += f"{components_instructions}The JSX components that MUST be used are: {components_string}. "
+    if elements_string:
+        user_message += f"{elements_instructions}The MDX elements that MUST be incorporated are: {elements_string}. In this case a {elements_string} was told to be used. So you MUST incorporate  {elements_string} into the generated content."
+
+    user_message += f"""Note: Remember to provide only the generated content in MDX format without unnecessary explanations or meta-commentary.
+                        Examples are very important to help students understand concepts. When you see pertinent the use of examples, use clear, concise examples to explain the key points and most importanly USE MANY examples, MORE THAN 6, THIS IS VERY IMPORTANT, USE MORE THAN 6 examples ALWAYS.
+                        Generate the content and only the content in an MDX format. 
+                        Do not include text about what you did, your thought process or any other messages, just the generated content in MDX format. 
+                        Also omit the title of the lesson and the title of the section, just provide the content. 
+                        Do not format the output with ```markdown, ```mdx or anything like that."""
+
     data = {
         "model": "gpt-3.5-turbo-1106",
         "messages": [
             {
                 "role": "system",
-                "content": f"""You are a great educator and know very well how to teach in easy steps. 
-                           You know very well how to output format in MDX. 
-                           The output you are generating is in English.""",
+                "content": "You are an educator tasked with creating engaging and educational content formatted in MDX. Use JSX components and MDX elements to enhance the lesson.",
             },
             {
                 "role": "user",
-                "content": f"""You are going to generate content for the lesson with the title {lesson_title}, 
-                    but you are going to generate only a section, the section you are going to generate is {section_title}. 
-                    Generate the content for this section based on the prompt {prompt}. 
-                    Generate the content and only the content in an MDX format. 
-                    Do not include text about what you did, your thought process or any other messages, 
-                    just the generated content in MDX format. 
-                    Also omit the title of the lesson and the title of the section, just provide the content. 
-                    {elements_prompt if elements_string else ''}
-                    {components_prompt if components_string else ''}
-                    Do not format the output with ```markdown, ```mdx or anything like that.""",
+                "content": user_message,
             },
         ],
     }
