@@ -12,6 +12,18 @@
             {
                 "title": "Section 1: The Tricky 'J' Sound",
                 "about": "Explain the letter of the sound J in spanish, provide examples and a great explanation",
+                "components": ["Mnemonic", "TextToSpeechPlayer", "TipBox"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: The Tricky 'RR' Sound",
+                "about": "Explain the 'RR' sound in spanish, provide examples and a great explanation",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: The Tricky 'LL' Sound",
+                "about": "Explain the 'LL' sound in spanish, provide examples and a great explanation",
                 "components": ["Mnemonic", "TextToSpeechPlayer"],
                 "elements": ["table"]
             }

@@ -33,6 +33,7 @@ def generate_content(
     Purpose: The TextToSpeechPlayer JSX component is used to incorporate an audio player in the lesson content. This component plays a pronunciation guide or the examples shown in the lesson.
     Usage: It requires a parameter indicating the source of the audio file, usually a path to the audio file relative to the lesson content directory.
     Example usage: <TextToSpeechPlayer mp3File={{/src/assets/courses/spanish/_shared/lessons/lesson2/audio/tricky-j.mp3}} />
+    Note: This is the only way to use it, do not combine it with other elements or other JSX Components.
     
     2. TipBox
     Purpose: The TipBox JSX component is used to highlight tips, notes, or important information in a visually distinct box. It's used to draw the learner's attention to key points, suggestions, or additional information that can aid understanding or retention of the lesson material.
@@ -43,18 +44,40 @@ def generate_content(
         - **Patience**: Some sounds take time to master, so keep practicing regularly. 
         - **Record Yourself**: Recording and listening to yourself can be a great way to notice and correct your pronunciation.
         </TipBox>
+    Note: This is the only way to use it, do not combine it with other elements or other JSX Components.
+    
     3. Mnemonic
     Purpose: The Mnemonic JSX component is used to provide mnemonic devices or memory aids. Mnemonics are techniques a person can use to help them improve their ability to remember something, making it easier for learners to remember terms, grammar rules, or concepts.
     Usage: It contains a property called title and a property called content, which is a text or phrase that makes learning and recalling specific information easier. This component is especially useful in language learning for memorizing vocabulary, verb conjugations, and other grammar rules.
     Example usage: <Mnemonic title={{A suitable title}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
-
-    In the content of this lesson, you must use the following components: {components_string}, and remember how they are used, the parameters expected and the correct format.
+    Note: This is the only way to use it, do not combine it with other elements or other JSX Components.
+    Note: If you are asked to use the Mnemonic JSX component, use it only once and in the correct format as shown in the example.
+    Note: If you are asked to use the Mnemonic JSX component, and there is something that you considerer needs a mneumonic device, use the Mnemonic component, do not use any other format like plain text or other components.
+    Wrong ways of proving a Mnemonic:
+-   **Mnemonic**: Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher. This visualization can help in producing the correct sound.
+    | Mnemonic | content |
+    | The sound | Think of the sound...|
+    - **Mnemonic:** 
+    - **Title:** Guttural 'J' Sound
+    - **Content:** Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.
+    The right way and only way to provide a Mnemonic is the following:
+    <Mnemonic title={{Guttural 'J' Sound}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
+    
+    Note: Do not tell you are going to use a JSX component or do not mention the JSX component, just use the JSX component wherever is pertinent. For example, if you are explaining a concept that needs a mnemonic, directly use the mnemonic JSX component without mentioning you are going to use it or putting a title before the JSX component announcing you are using it.
+    For example, DO NOT do this:
+    ### Mnemonic:
+    <Mnemonic title={{Guttural 'J' Sound}} content={{Think of the sound you make when you're trying to fog up a mirror with your breath but make it harsher.}} />
+    
+    In the content of this lesson, you must use the following JSX components: {components_string}, and remember how they are used, the parameters expected and the correct format.
     """
 
-    elements_prompt = f"""MDX supports different components like ordered lists, unordered lists, tables, etc. 
+    elements_prompt = f"""MDX supports different elements like ordered lists, unordered lists, tables, etc. 
     Use the ordered lists in a correct manner.
-    Use the tables in a correct manner to provide examples and explain contetn very well, do not place components or complex explanation on tables.
-    ANy of the elements you are asked to incorporate, try to use more than 4 items or examples.
+    Use the tables in a correct manner to provide examples and explain contetn very well, do not place JSX components or complex explanation on tables.
+    Any of the elements you are asked to incorporate, try to use more than 4 items or examples.
+    Note: Do not try to combine elements or JSX components in an unnatural way just for the sake of using them. Focus on quality over quantity.
+    Note: If you are going to use tables, provide examles in a clear and easy to understand manner without overly complex explanations.
+    Note: Do not put any JSX components inside the table. Do not list any JSX components.
     In this section, you must incorporate the following elements and only these elements: {elements_string}.
     """
     data = {
