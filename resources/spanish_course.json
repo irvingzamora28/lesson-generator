@@ -1,0 +1,818 @@
+[
+    {
+        "title": "Spanish Language Course Lesson 1: Alphabet and Pronunciation",
+        "description": "Learn the Spanish alphabet and practice pronunciation.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Welcome learners to the Spanish alphabet and pronunciation course, setting the stage for exploration.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: The Spanish Alphabet",
+                "about": "Introduce each letter of the Spanish alphabet, highlighting unique characteristics.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Pronunciation Tips",
+                "about": "Offer strategies and tips for mastering Spanish pronunciation effectively.",
+                "components": ["Mnemonic", "TextToSpeechPlayer", "TipBox"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Vowels",
+                "about": "Detail the sounds of Spanish vowels, with examples for clarity and practice.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Accents",
+                "about": "Explain the role and pronunciation of accented characters in the Spanish language.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 5: The Letter 'H'",
+                "about": "Clarify the unique silent nature of 'H' in Spanish, with usage examples.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 6: The 'C' and 'G'",
+                "about": "Discuss the varying sounds of 'C' and 'G' in Spanish, providing pronunciation examples.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 7: Double Consonants and Special Characters",
+                "about": "Introduce double consonants and special characters in Spanish, focusing on their pronunciation.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 8: Pronunciation Tips",
+                "about": "Provide additional pronunciation techniques and exercises for Spanish learners.",
+                "components": ["TipBox"],
+                "elements": []
+            },
+            {
+                "title": "Section 9: Common Challenges",
+                "about": "Address common pronunciation challenges and misunderstandings in Spanish.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Conclusion",
+                "about": "Summarize key takeaways from the course and encourage ongoing practice and learning.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": [
+                "Amor",
+                "Bueno",
+                "Casa",
+                "Día",
+                "Elefante",
+                "Familia",
+                "Gato",
+                "Hermano",
+                "Isla",
+                "Jugar",
+                "Kilo",
+                "Lápiz",
+                "Mesa",
+                "Nube",
+                "Ñu",
+                "Oveja",
+                "Pescado",
+                "Queso",
+                "Rana",
+                "Silla",
+                "Tortuga",
+                "Uva",
+                "Vaca",
+                "Yema",
+                "Zanahoria"
+            ],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 2: Specific Pronunciation Challenges",
+        "description": "Tackle specific pronunciation challenges unique to Spanish, such as rolling Rs and the soft 'c'.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the concept of unique pronunciation challenges in Spanish and the importance of overcoming them.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: The Rolling 'R'",
+                "about": "Provide strategies and exercises to master the rolling 'R', a common challenge for Spanish learners.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: The Soft 'C'",
+                "about": "Explain the pronunciation and usage of the soft 'C', with practice examples and tips.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: The Letter 'J'",
+                "about": "Discuss the correct pronunciation of the Spanish 'J' and provide practice exercises.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Vowel Sounds",
+                "about": "Detail the vowel sounds in Spanish, emphasizing the differences from English and other languages.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 5: Liaison and Linking",
+                "about": "Teach the concept of liaison in Spanish pronunciation, where words are linked together smoothly.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Summarize the lesson and encourage consistent practice to overcome these specific pronunciation challenges.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["carro", "cielo", "jugar", "gemelo", "viuda", "reloj", "sol", "azul", "gris", "verde"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "pronunciationChallengeType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 3: Basic Greetings and Introductions",
+        "description": "Learn essential greetings and how to introduce yourself in Spanish.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Begin with the importance of greetings and introductions in Spanish-speaking cultures and everyday conversation.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Greetings",
+                "about": "Introduce common Spanish greetings for different times of the day and situations.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Goodbyes",
+                "about": "Teach common phrases for parting or saying goodbye in various contexts.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Introducing Yourself",
+                "about": "Provide phrases and vocabulary for introducing oneself and asking about others.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Courtesy Expressions",
+                "about": "Discuss essential courtesy expressions in Spanish, including please, thank you, and you're welcome.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Conclude by emphasizing the role of these phrases in initiating conversations and building relationships.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["hola", "adiós", "buenos días", "buenas tardes", "buenas noches", "me llamo", "¿cómo estás?", "por favor", "gracias", "de nada"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "usageContext", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 4: Numbers and Basic Counting",
+        "description": "Learn to count in Spanish and use numbers in everyday contexts.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the importance of numbers in daily life and their basic usage in Spanish.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Numbers 0-30",
+                "about": "Begin with the numbers 0 through 30, focusing on pronunciation and common uses.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Tens and Hundreds",
+                "about": "Expand to include counting by tens and hundreds, and their usage in various contexts.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Large Numbers",
+                "about": "Teach how to express thousands and larger numbers in Spanish.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Using Numbers in Context",
+                "about": "Provide practical applications for numbers, including time, dates, prices, and quantities.",
+                "components": ["TextToSpeechPlayer", "TipBox"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Wrap up the lesson with encouragement to practice using numbers in everyday situations.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["uno", "diez", "veinte", "treinta", "cuarenta", "cien", "mil", "diez mil", "cien mil", "un millón"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "numberContext", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 5: Basic Grammar - Nouns, Articles, and Pronouns",
+        "description": "Understand the basics of Spanish nouns, articles, and pronouns.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Begin with the importance of understanding nouns, articles, and pronouns for building sentences in Spanish.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Nouns",
+                "about": "Introduce Spanish nouns, focusing on gender and number, and how they affect sentence structure.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Definite and Indefinite Articles",
+                "about": "Explain the use of definite and indefinite articles in Spanish, and their agreement with nouns.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Personal Pronouns",
+                "about": "Detail personal pronouns and their use in forming sentences and replacing nouns.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Demonstrative Pronouns",
+                "about": "Teach demonstrative pronouns and their use in identifying and specifying nouns.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Conclude by emphasizing the foundational role of nouns, articles, and pronouns in Spanish grammar and communication.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["niño", "niña", "el", "la", "un", "una", "yo", "tú", "él", "ella", "esto", "esa", "aquel"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "grammarRole", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 6: Gender of Nouns",
+        "description": "Understand the masculine and feminine gender in Spanish nouns and how it affects adjective agreement and overall sentence structure.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Initiate learners into the concept of gender in Spanish nouns, explaining its significance in the language structure.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Understanding Gender",
+                "about": "Explain the concept of masculine and feminine nouns, and how to identify them.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Masculine Nouns",
+                "about": "Detail characteristics of masculine nouns, common endings, and usage examples.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Feminine Nouns",
+                "about": "Explore the characteristics of feminine nouns, common endings, and examples.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Adjective Agreement",
+                "about": "Discuss how gender affects the form of adjectives used with nouns, providing examples and practice.",
+                "components": ["TextToSpeechPlayer", "TipBox"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 5: Gender Exceptions",
+                "about": "Highlight and explain exceptions to the general gender rules, with examples of irregular nouns.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 6: Practicing Gender Agreement",
+                "about": "Provide exercises and examples to practice identifying and using masculine and feminine nouns correctly.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Recap the lesson, emphasizing the importance of gender in Spanish nouns and encouraging further practice.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["actor", "actriz", "gato", "gata", "maestro", "maestra", "niño", "niña", "rey", "reina", "amigo", "amiga"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 7: Basic Verbs and Present Tense",
+        "description": "Learn basic verb conjugations and sentence structures in the present tense.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the importance of verbs and present tense in everyday Spanish communication.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Regular Verbs",
+                "about": "Explain the conjugation patterns of regular -ar, -er, and -ir verbs in the present tense.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Irregular Verbs",
+                "about": "Discuss common irregular verbs and their unique present tense conjugations.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Stem-Changing Verbs",
+                "about": "Detail the concept of stem-changing verbs and their conjugation in the present tense.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Reflexive Verbs",
+                "about": "Introduce reflexive verbs and how they are used and conjugated in the present tense.",
+                "components": ["TextToSpeechPlayer", "TipBox"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 5: Using Verbs in Sentences",
+                "about": "Provide guidelines and examples for constructing sentences with verbs in the present tense.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Summarize the key points about using basic verbs and present tense in Spanish, encouraging practice and application.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["hablar", "comer", "vivir", "ser", "estar", "ir", "tener", "hacer", "poder", "decir"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "conjugationType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 8: Family and Relationships Vocabulary",
+        "description": "Learn vocabulary related to family members and relationships in Spanish.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Begin with the significance of family and relationships in Spanish-speaking cultures and the need for specific vocabulary.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Immediate Family",
+                "about": "Cover terms for immediate family members like parents, siblings, and children.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Extended Family",
+                "about": "Expand vocabulary to include extended family such as grandparents, cousins, aunts, and uncles.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Marital Status",
+                "about": "Discuss terms related to marital status and relationships, including boyfriend, girlfriend, fiancé, and spouse.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Terms of Endearment",
+                "about": "Introduce common terms of endearment and their appropriate contexts of use.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 5: Describing Relationships",
+                "about": "Teach how to describe the nature of relationships and familial connections in Spanish.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Wrap up the lesson, emphasizing the importance of these terms in daily communication and encouraging practice.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["madre", "padre", "hermano", "hermana", "abuelo", "abuela", "tío", "tía", "primo", "prima", "esposo", "esposa", "novio", "novia"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "relationType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 9: Food and Drink in Spanish Culture",
+        "description": "Explore Spanish cuisine and learn vocabulary related to food and drinks.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the rich diversity of Spanish cuisine and its significance in Spanish culture.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Common Foods",
+                "about": "Describe common Spanish foods, including typical dishes and ingredients found in Spanish cooking.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Fruits and Vegetables",
+                "about": "List and describe various fruits and vegetables commonly used in Spanish cuisine.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Meats and Seafood",
+                "about": "Detail the types of meats and seafood that are staples in Spanish dishes, with examples.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Beverages",
+                "about": "Explore popular Spanish beverages, both alcoholic and non-alcoholic.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 5: Eating Out",
+                "about": "Discuss phrases and vocabulary related to dining out in Spanish-speaking countries, including ordering and restaurant etiquette.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Summarize the lesson, highlighting the importance of food and drink in cultural exchange and communication.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["comida", "bebida", "fruta", "verdura", "carne", "marisco", "restaurante", "menú", "ordenar", "cuenta"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "foodType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 10: Asking for Directions",
+        "description": "Learn to ask for and understand directions in Spanish.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Explain the importance of knowing how to ask for and understand directions while navigating Spanish-speaking areas.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Basic Direction Phrases",
+                "about": "Introduce basic phrases and vocabulary for asking directions, like 'Where is...?' and 'How do I get to...?'",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Understanding Responses",
+                "about": "Teach how to understand common responses when asking for directions, including landmarks and street names.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Transportation Vocabulary",
+                "about": "Provide vocabulary related to various modes of transportation and navigating a city or town.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Cultural Tips",
+                "about": "Offer tips related to cultural nuances and politeness when asking for directions in Spanish-speaking countries.",
+                "components": ["TipBox", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Conclude with encouragement to practice these phrases in real-world situations and gain confidence in navigating new places.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["izquierda", "derecha", "recto", "cruce", "semáforo", "esquina", "parada", "estación", "mapa", "dirección"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "directionType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 11: Describing Clothing and Appearance",
+        "description": "Acquire vocabulary for clothing and describing appearance.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the relevance of clothing and appearance vocabulary in everyday conversation and description.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Clothing Items",
+                "about": "Detail common clothing items, their names in Spanish, and usage.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Describing Clothes",
+                "about": "Discuss how to describe the color, pattern, and style of clothing in Spanish.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Describing Physical Appearance",
+                "about": "Teach vocabulary and phrases for describing physical features and personal appearance.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Shopping for Clothes",
+                "about": "Provide useful language for shopping for clothes, including sizes, preferences, and fitting.",
+                "components": ["Mnemonic", "TextToSpeechPlayer", "TipBox"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Summarize the lesson and encourage the practical application of vocabulary in various settings.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["camisa", "pantalón", "vestido", "zapato", "sombrero", "abrigo", "suéter", "falda", "corbata", "blusa"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "clothingType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 12: Celebrations and Festivals",
+        "description": "Learn about Spanish holidays and festivals, along with related vocabulary.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the colorful and diverse world of Spanish celebrations, holidays, and festivals.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Major Spanish Holidays",
+                "about": "Discuss significant holidays in Spain and Latin America, including traditions, customs, and historical background.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Regional Festivals",
+                "about": "Highlight famous regional festivals, their origins, and how they are celebrated.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Celebratory Phrases",
+                "about": "Provide common phrases and expressions used during celebrations and festivities.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Food and Drink",
+                "about": "Discuss the typical foods and drinks associated with different festivals and celebrations.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Encapsulate the vibrancy and significance of celebrations in Spanish-speaking cultures and encourage participation and further exploration.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["fiesta", "feria", "desfile", "baile", "música", "tradición", "celebración", "fuego artificial", "costumbre", "decoración"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "festivalAspect", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 13: Comparatives and Superlatives",
+        "description": "Learn how to make comparisons and express extremes in Spanish.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the concept of comparing objects, people, and situations using comparatives and superlatives in Spanish.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Forming Comparatives",
+                "about": "Explain how to construct comparative sentences to show similarity and difference between two entities.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Irregular Comparatives",
+                "about": "Detail common irregular comparatives and when to use them.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Forming Superlatives",
+                "about": "Teach how to create superlative sentences to express the highest degree of a quality.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Irregular Superlatives",
+                "about": "Discuss irregular superlatives and their usage in the Spanish language.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Conclude the lesson by emphasizing the importance of comparatives and superlatives in descriptive language and encouraging practice.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["más", "menos", "tan", "tanto", "mejor", "peor", "mayor", "menor", "máximo", "mínimo"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "comparativeType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 14: Basic Commands and Imperatives",
+        "description": "Learn basic commands and how to give imperative instructions in Spanish.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Begin with the importance of commands and imperatives in giving instructions, making requests, and everyday conversation.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Forming Commands",
+                "about": "Explain the structure of forming affirmative and negative commands in Spanish.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Regular Imperatives",
+                "about": "Detail how to form imperatives with regular verbs for both formal and informal situations.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Irregular Imperatives",
+                "about": "Discuss irregular imperatives, focusing on the most common and useful ones in daily interactions.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 4: Using Imperatives Politely",
+                "about": "Provide language strategies for softening commands to be polite and culturally appropriate.",
+                "components": ["TipBox", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Conclude with a recap of forming and using commands in Spanish and encourage practicing in real-life situations.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["habla", "come", "vive", "no hables", "no comas", "no vivas", "di", "haz", "ve", "pon"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "commandType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 15: Describing People",
+        "description": "Learn vocabulary to describe physical appearance, personality traits, and opinions about people in Spanish.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Introduce the importance of being able to describe people, their looks, and their character in Spanish.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Physical Descriptions",
+                "about": "Teach vocabulary and phrases for describing physical characteristics like height, hair color, and build.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Personality Traits",
+                "about": "Detail common adjectives for describing personality and behavior.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Expressing Opinions",
+                "about": "Provide expressions for stating opinions about people, including compliments and criticisms.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Wrap up by emphasizing the value of descriptive language in building relationships and understanding people.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["alto", "bajo", "moreno", "rubio", "delgado", "gordo", "simpático", "antipático", "inteligente", "tonto"],
+            "properties": ["translation", "exampleSentence", "exampleTranslation", "descriptionType", "gender"]
+        }
+    },
+    {
+        "title": "Spanish Language Course Lesson 16: Accents and Punctuation",
+        "description": "Learn about proper use of accents and punctuation in Spanish.",
+        "sections": [
+            {
+                "title": "Introduction",
+                "about": "Start with the significance of accents and punctuation in correctly understanding and writing Spanish.",
+                "components": [],
+                "elements": []
+            },
+            {
+                "title": "Section 1: Accent Marks",
+                "about": "Explain the different types of accent marks in Spanish, their rules, and their impact on pronunciation.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 2: Special Punctuation",
+                "about": "Discuss unique Spanish punctuation marks, such as inverted question and exclamation marks, and their usage.",
+                "components": ["Mnemonic", "TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Section 3: Punctuation in Practice",
+                "about": "Provide examples and exercises for using punctuation marks correctly in writing.",
+                "components": ["TextToSpeechPlayer"],
+                "elements": ["table"]
+            },
+            {
+                "title": "Conclusion",
+                "about": "Conclude by emphasizing the importance of accents and punctuation in clear and effective Spanish communication.",
+                "components": [],
+                "elements": []
+            }
+        ],
+        "vocabulary": {
+            "words": ["á", "é", "í", "ó", "ú", "¿", "¡", "coma", "punto", "punto y coma"],
+            "properties": ["exampleUsage", "ruleExplanation", "pronunciationImpact", "punctuationType", "gender"]
+        }
+    }
+]
