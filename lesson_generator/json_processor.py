@@ -31,5 +31,5 @@ def save_json_file(lesson_data, output_directory):
     file_path = os.path.join(output_directory, f"{lesson_title_sanitized}.json")
 
     lesson_data = generate_transformed_data(lesson_data)
-    with open(file_path, "w") as file:
-        json.dump(lesson_data, file, indent=4)
+    with open(file_path, "w", encoding="utf-8") as file:
+        json.dump(lesson_data, file, indent=4, ensure_ascii=False)
