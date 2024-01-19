@@ -4,18 +4,18 @@ The Lesson Generator is a Python command-line application that assists content c
 
 ## Features
 
-- Automated lesson content generation in MDX format
-- Integration with OpenAI API for dynamic content creation
-- Support for various educational topics and multiple languages
-- Incorporation of interactive React components like TextToSpeechPlayer, TipBox, and Mnemonic
+-   Automated lesson content generation in MDX format
+-   Integration with OpenAI API for dynamic content creation
+-   Support for various educational topics and multiple languages
+-   Incorporation of interactive React components like TextToSpeechPlayer, TipBox, and Mnemonic
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python environment
-- An OpenAI API key
-- Internet access
+-   Python environment
+-   An OpenAI API key
+-   Internet access
 
 ### Installation
 
@@ -23,19 +23,19 @@ The Lesson Generator is a Python command-line application that assists content c
 2. Install necessary Python packages specified in `requirements.txt`.
 3. Set up an `.env` file with your OpenAI API key.
 
-### Usage
+## Usage
 
-To use the Lesson Generator, invoke the command-line interface with the path to a valid JSON lesson structure:
-
-```bash
-python -m lesson_generator.cli <path_to_json_file>
-```
-
-For example:
+To use the Lesson Generator, start the command-line interface which will prompt you for the necessary parameters using the Questionary library:
 
 ```bash
-python -m lesson_generator.cli lessons/lesson1.json
+python -m lesson_generator.cli
 ```
+
+Upon running the command, you will be asked to:
+
+1. Choose the action you want to perform (e.g., "Generate lessons").
+2. Enter the JSON file path for the lesson structure. A default value is provided which you can use or replace.
+3. Specify the directory where you want the lessons to be saved. A default output directory is provided, but you can change it as needed.
 
 ### JSON Input Structure
 
@@ -45,20 +45,20 @@ The input JSON structure should follow the schema defined in `lesson_generator/s
 
 ### Key Files & Directories
 
-- `lesson_generator/`: Core application modules.
-- `tests/`: Contains JSON files for testing input validation.
-- `i18n/`: Translation files for internationalization support.
+-   `lesson_generator/`: Core application modules.
+-   `tests/`: Contains JSON files for testing input validation.
+-   `i18n/`: Translation files for internationalization support.
 
 ### Technologies Used
 
-- Python
-- OpenAI API
-- MDX
-- jsonschema
-- requests
-- python-i18n
-- PyInquirer
-- markdown2
+-   Python
+-   OpenAI API
+-   MDX
+-   jsonschema
+-   requests
+-   python-i18n
+-   PyInquirer
+-   markdown2
 
 ## Contributing
 
@@ -70,8 +70,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgements
 
-- This project makes use of the OpenAI API to provide valuable educational content.
-- The use of MDX allows for the integration of React components within markdown content.
+-   This project makes use of the OpenAI API to provide valuable educational content.
+-   The use of MDX allows for the integration of React components within markdown content.
 
 ## Contact
 
