@@ -52,13 +52,11 @@ The input JSON structure should follow the schema defined in `lesson_generator/s
 ### Technologies Used
 
 -   Python
--   OpenAI API
 -   MDX
 -   jsonschema
 -   requests
 -   python-i18n
--   PyInquirer
--   markdown2
+-   questionary
 
 ## Contributing
 
