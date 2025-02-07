@@ -82,6 +82,97 @@ def get_content_generation_prompt(lesson_title, section_title, section_component
 AUDIO_TEXT_SYSTEM_MESSAGE = """You are a great educator and know very well how to teach in easy steps. 
 The output you are generating is in mostly in spanish."""
 
+# Prompt for generating lesson sections
+LESSON_SECTIONS_PROMPT = """Your task is to generate a JSON lesson structure based on the provided input data. The output must strictly follow the specified JSON format. The key difference from a typical JSON schema is in how the vocabulary is handled.
+
+Input:
+
+The input will be a JSON object containing the following fields:
+
+name: The name of the lesson.
+lesson_number: The lesson's number.
+description: A brief description of the lesson.
+goals: An array of strings representing the learning goals of the lesson (e.g., "Fundamentals", "Vocabulary").
+
+Output Format:
+
+The output must be a valid JSON object with the following structure:
+
+{
+    "title": "Lesson Title",
+    "description": "Lesson Description",
+    "sections": [
+        {
+            "title": "Section Title",
+            "about": "Section Description",
+            "components": ["Component1", "Component2"],
+            "elements": ["Element1", "Element2"]
+        },
+        ...
+    ],
+    "vocabulary": {
+        "words": ["word1", "word2", ...],
+        "properties": ["translation", "exampleSentence", "exampleTranslation", "gender"]
+    }
+}
+
+Detailed Instructions:
+
+title: Create the lesson title by prepending "Lesson [lesson_number]: " to the name field from the input.
+
+description: Use the description field from the input directly.
+
+sections:
+
+Create an "Introduction" section with a generic welcome message in the about field. This section should have empty components and elements arrays.
+
+Based on the goals array in the input, create between 4 and 6 additional sections. Each section should have:
+
+title: A descriptive title for the section.
+
+about: A brief explanation of the section's content.
+
+components: An array of strings representing relevant components (see "Components" below). Choose components that are appropriate for the section's content.
+
+elements: An array of strings representing interactive elements (see "Elements" below).
+
+vocabulary: This is the most crucial part. There is only one vocabulary object in the lesson. The vocabulary must be an object with exactly two keys:
+
+words: An array of strings. These strings should be the vocabulary words themselves (e.g., "hola", "adiós"). Do not create objects for each word. Just list the words as strings.
+
+properties: An array of strings representing the names of the properties that will be associated with each word in a separate data structure (which is not part of this JSON output). This array should always be: ["translation", "exampleSentence", "exampleTranslation", "gender"]. Do not include the actual translations, example sentences, etc., in this JSON.
+
+Components:
+
+Use the following components where appropriate within the sections:
+
+TextToSpeechPlayer: For audio examples.
+TipBox: For important notes or tips.
+Mnemonic: For memory aids.
+VoiceRecorder: For pronunciation practice.
+SentenceBreakdown: For analyzing complex sentences.
+HighlightableText: To highlight key terms.
+WordBuilder: For vocabulary practice (unscrambling letters).
+
+Elements:
+
+Use the following elements where appropriate within the sections:
+
+table
+list
+
+Strict Rules:
+
+1. The output MUST be valid, well-formatted JSON.
+2. The vocabulary.words array MUST contain only strings (the words themselves), NOT objects.
+3. The vocabulary.properties must be exactly ["translation", "exampleSentence", "exampleTranslation", "gender"]
+4. Adhere to all structural requirements outlined above.
+
+Now, using the following input, generate the corresponding JSON lesson:
+
+{input_json}
+"""
+
 # Audio text generation prompt template with examples
 AUDIO_TEXT_GENERATION_PROMPT = """You are going to generate a json string, this is going to have two properties, text and audio_file_name.
 The text is going to be the text from the examples of the lesson, the audio_file_name is going to be the name of the file name. I will show you an example:

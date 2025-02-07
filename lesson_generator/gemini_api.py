@@ -116,3 +116,29 @@ def generate_vocabulary(lesson_title, vocabulary_words, properties, max_tokens=5
     except Exception as e:
         logger.error(f"Error generating vocabulary with Gemini: {str(e)}")
         raise LessonGenerationError(f"Failed to generate vocabulary: {str(e)}")
+
+
+def generate_lesson_sections(prompt, max_tokens=5000):
+    """
+    Generate lesson sections structure using Gemini
+    """
+    try:
+        response = client.models.generate_content(
+            model=model,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                system_instruction="You are a language learning expert who specializes in creating structured lesson content. You will generate JSON lesson sections based on the provided input.",
+                max_output_tokens=max_tokens,
+                temperature=0.7,
+                response_mime_type='application/json',  # Ensure JSON response
+            ),
+        )
+        
+        if not response.text:
+            raise LessonGenerationError("Empty response received from Gemini API")
+            
+        return response.text
+
+    except Exception as e:
+        logger.error(f"Error generating lesson sections with Gemini: {str(e)}")
+        raise LessonGenerationError(f"Failed to generate lesson sections: {str(e)}")

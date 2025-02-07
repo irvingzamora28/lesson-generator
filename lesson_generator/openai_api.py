@@ -144,3 +144,40 @@ def generate_vocabulary(lesson_title, vocabulary_words, properties):
         raise LessonGenerationError(
             "OpenAI API request failed: Unexpected error occurred"
         )
+
+
+def generate_lesson_sections(prompt):
+    data = {
+        "model": model,
+        "messages": [
+            {
+                "role": "system",
+                "content": "You are a language learning expert who specializes in creating structured lesson content. You will generate JSON lesson sections based on the provided input.",
+            },
+            {
+                "role": "user",
+                "content": prompt,
+            },
+        ],
+        "temperature": 0.7,
+        "max_tokens": 2000,  # Increased token limit for generating full lesson structure
+        "response_format": { "type": "json_object" }  # Ensure response is valid JSON
+    }
+
+    try:
+        response = requests.post(OPENAI_API_URL, headers=HEADERS, json=data)
+        response.raise_for_status()
+        response_data = response.json()
+        generated_text = response_data.get("choices")[0]["message"]["content"].strip()
+        return generated_text
+    except requests.HTTPError as http_err:
+        logger.error(f"HTTP error occurred: {http_err}")
+        raise LessonGenerationError("OpenAI API request failed: HTTP error occurred")
+    except requests.RequestException as req_err:
+        logger.error(f"Request error occurred: {req_err}")
+        raise LessonGenerationError("OpenAI API request failed: Request error occurred")
+    except Exception as e:
+        logger.error(f"Error during OpenAI API call: {e}")
+        raise LessonGenerationError(
+            "OpenAI API request failed: Unexpected error occurred"
+        )

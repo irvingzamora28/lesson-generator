@@ -33,6 +33,11 @@ class AIProvider(ABC):
         """Generate vocabulary content"""
         pass
 
+    @abstractmethod
+    def generate_lesson_sections(self, prompt: str) -> str:
+        """Generate lesson sections structure"""
+        pass
+
 class OpenAIProvider(AIProvider):
     """OpenAI implementation"""
     
@@ -41,10 +46,12 @@ class OpenAIProvider(AIProvider):
             generate_content as openai_generate_content,
             generate_json_audio_text as openai_generate_audio,
             generate_vocabulary as openai_generate_vocabulary,
+            generate_lesson_sections as openai_generate_sections,
         )
         self._generate_content = openai_generate_content
         self._generate_audio = openai_generate_audio
         self._generate_vocabulary = openai_generate_vocabulary
+        self._generate_sections = openai_generate_sections
 
     def generate_content(self, *args, **kwargs) -> str:
         return self._generate_content(*args, **kwargs)
@@ -54,6 +61,9 @@ class OpenAIProvider(AIProvider):
 
     def generate_vocabulary(self, *args, **kwargs) -> str:
         return self._generate_vocabulary(*args, **kwargs)
+
+    def generate_lesson_sections(self, prompt: str) -> str:
+        return self._generate_sections(prompt)
 
 class GeminiProvider(AIProvider):
     """Google Gemini implementation"""
@@ -63,10 +73,12 @@ class GeminiProvider(AIProvider):
             generate_content as gemini_generate_content,
             generate_json_audio_text as gemini_generate_audio,
             generate_vocabulary as gemini_generate_vocabulary,
+            generate_lesson_sections as gemini_generate_sections,
         )
         self._generate_content = gemini_generate_content
         self._generate_audio = gemini_generate_audio
         self._generate_vocabulary = gemini_generate_vocabulary
+        self._generate_sections = gemini_generate_sections
 
     def generate_content(self, *args, **kwargs) -> str:
         return self._generate_content(*args, **kwargs)
@@ -76,6 +88,9 @@ class GeminiProvider(AIProvider):
 
     def generate_vocabulary(self, *args, **kwargs) -> str:
         return self._generate_vocabulary(*args, **kwargs)
+
+    def generate_lesson_sections(self, prompt: str) -> str:
+        return self._generate_sections(prompt)
 
 def get_ai_provider(provider_name: str) -> AIProvider:
     """Factory function to get the appropriate AI provider"""
