@@ -11,6 +11,8 @@ HEADERS = {
     "Content-Type": "application/json",
 }
 
+model = "o3-mini"
+
 
 def generate_content(
     lesson_title,
@@ -122,7 +124,7 @@ def generate_content(
                         Do not format the output with ```markdown, ```mdx or anything like that."""
 
     data = {
-        "model": "gpt-3.5-turbo-1106",
+        "model": model,
         "messages": [
             {
                 "role": "system",
@@ -156,7 +158,7 @@ def generate_content(
 
 def generate_json_audio_text(section_content):
     data = {
-        "model": "gpt-3.5-turbo-1106",
+        "model": model,
         "messages": [
             {
                 "role": "system",
@@ -263,7 +265,7 @@ def generate_vocabulary(lesson_title, vocabulary_words, properties):
     vocabulary_string = ", ".join(vocabulary_words)
     properties_string = ", ".join(properties)
     data = {
-        "model": "gpt-3.5-turbo-1106",
+        "model": model,
         "messages": [
             {
                 "role": "system",
