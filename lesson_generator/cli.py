@@ -126,8 +126,8 @@ def generate_lesson_sections(json_file_path, output_directory, ai_provider_name)
                 output_file = f"{level}_lessons_sections.json"
                 output_path = os.path.join(level_dir, output_file)
                 
-                with open(output_path, 'w') as f:
-                    json.dump(level_sections, f, indent=2)
+                with open(output_path, 'w', encoding='utf-8') as file:
+                    json.dump(level_sections, file, indent=4, ensure_ascii=False)
 
                 logger.info(f"Saved all lesson sections for level {level} in {output_path}")
 
