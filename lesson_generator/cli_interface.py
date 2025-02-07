@@ -31,6 +31,13 @@ questions = [
         "choices": ["Generate lessons", "Exit"],
     },
     {
+        "type": "list",
+        "name": "ai_provider",
+        "message": "Which AI provider would you like to use?",
+        "choices": ["OpenAI", "Gemini"],
+        "when": lambda answers: answers["action"] == "Generate lessons",
+    },
+    {
         "type": "input",
         "name": "file_path",
         "message": "Enter the JSON file path:",
@@ -52,7 +59,19 @@ questions = [
 def main(generate_lessons_func):
     answers = questionary.prompt(questions)
 
-    if answers["action"] == "Generate lessons":
-        generate_lessons_func(answers["file_path"], answers["output_directory"])
-    else:
+    if answers is None or answers.get("action") == "Exit":
         print("Exiting...")
+        return
+
+    if answers.get("action") == "Generate lessons":
+        file_path = answers.get("file_path")
+        output_directory = answers.get("output_directory")
+        ai_provider = answers.get("ai_provider").lower()
+
+        # Handle relative paths
+        if not os.path.isabs(file_path) and os.path.isfile(os.path.join(ROOT_DIR, file_path)):
+            file_path = os.path.join(ROOT_DIR, file_path)
+        if not os.path.isabs(output_directory) and os.path.isdir(os.path.join(ROOT_DIR, output_directory)):
+            output_directory = os.path.join(ROOT_DIR, output_directory)
+
+        generate_lessons_func(file_path, output_directory, ai_provider)
