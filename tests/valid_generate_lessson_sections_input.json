@@ -3,13 +3,13 @@
         "level": "beginner",
         "lessons": [
             {
-                "name": "Spanish Alphabet and Pronunciation",
+                "name": "Mexican Spanish Language Course: Spanish Alphabet and Pronunciation",
                 "lesson_number": 1,
                 "description": "Learn the Spanish alphabet and basic pronunciation rules, including vowel and consonant sounds.",
                 "goals": ["Fundamentals", "Vocabulary", "Other"]
             },
             {
-                "name": "Greetings and Introductions in Spanish",
+                "name": "Mexican Spanish Language Course: Greetings and Introductions in Spanish",
                 "lesson_number": 2,
                 "description": "Learn formal and informal greetings and how to introduce yourself and others in Spanish.",
                 "goals": ["Fundamentals", "Vocabulary", "Travel"]
@@ -20,13 +20,13 @@
         "level": "elementary",
         "lessons": [
             {
-                "name": "Review of Beginner and Expanded Greetings/Farewells",
+                "name": "Mexican Spanish Language Course: Review of Beginner and Expanded Greetings/Farewells",
                 "lesson_number": 1,
                 "description": "Review beginner concepts and learn more diverse greetings, farewells, and polite phrases.",
                 "goals": ["Fundamentals", "Vocabulary", "Travel"]
             },
             {
-                "name": "Regular -AR Verb Conjugation in Present Tense",
+                "name": "Mexican Spanish Language Course: Regular -AR Verb Conjugation in Present Tense",
                 "lesson_number": 2,
                 "description": "Learn the conjugation patterns of regular -AR verbs in the present tense.",
                 "goals": ["Grammar"]
@@ -37,13 +37,13 @@
         "level": "intermediate",
         "lessons": [
             {
-                "name": "Review of Pre-intermediate and Thematic Vocabulary Expansion",
+                "name": "Mexican Spanish Language Course: Review of Pre-intermediate and Thematic Vocabulary Expansion",
                 "lesson_number": 1,
                 "description": "Review pre-intermediate concepts and expand thematic vocabulary in various areas of daily life.",
                 "goals": ["Fundamentals", "Vocabulary"]
             },
             {
-                "name": "Preterite Tense of Irregular Verbs",
+                "name": "Mexican Spanish Language Course: Preterite Tense of Irregular Verbs",
                 "lesson_number": 2,
                 "description": "Learn the conjugation of common irregular verbs in the preterite tense.",
                 "goals": ["Grammar"]
@@ -54,7 +54,7 @@
         "level": "advanced",
         "lessons": [
              {
-                "name": "Review of Upper-intermediate and Formal Spanish",
+                "name": "Mexican Spanish Language Course: Review of Upper-intermediate and Formal Spanish",
                 "lesson_number": 1,
                 "description": "Review upper-intermediate concepts and focus on formal Spanish language usage, including register and style.",
                 "goals": [
@@ -64,7 +64,7 @@
                 ]
             },
             {
-                "name": "Present Perfect Subjunctive",
+                "name": "Mexican Spanish Language Course: Present Perfect Subjunctive",
                 "lesson_number": 2,
                 "description": "Learn how to use the present perfect subjunctive.",
                 "goals": ["Grammar", "Academic Study", "Business Communication"]

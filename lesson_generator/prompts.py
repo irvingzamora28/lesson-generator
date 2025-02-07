@@ -126,7 +126,7 @@ sections:
 
 Create an "Introduction" section with a generic welcome message in the about field. This section should have empty components and elements arrays.
 
-Based on the goals array in the input, create between 4 and 6 additional sections. Each section should have:
+Based on the goals array in the input, create between 5 and 8 additional sections. Each section should have:
 
 title: A descriptive title for the section.
 
