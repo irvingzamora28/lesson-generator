@@ -17,6 +17,15 @@ You are creating an MDX-JSX file for educational purposes. Make sure to use the 
 
 - Mnemonic: This component provides mnemonic aids for learning. Include it directly where the mnemonic aid is relevant to the lesson content. Do not precede it with any titles or introductions. It should appear as a natural part of the educational narrative. Format: <Mnemonic content="mnemonic_phrase" />. Ensure the content is helpful and relevant to the associated topic.
 
+- HighlightableText: This component highlights key words or phrases in a sentence and provides additional information (e.g., translations, grammar rules, pronunciation). Use it to make vocabulary or grammar points interactive. Format: <HighlightableText highlights='[{"word":"Guten","info":"Means good in the accusative case."},{"word":"Morgen","info":"Means morning. Pronounced: MOR-gen."}]'>
+  Guten Morgen, wie geht es dir?
+</HighlightableText>
+- SentenceBreakdown: This component breaks down complex sentences into smaller parts with explanations for each segment. Use it to teach sentence structure interactively. Format: <SentenceBreakdown sentence="Your sentence here"><Part part="segment" explanation="explanation" />...</SentenceBreakdown>. Each <Part> represents a segment of the sentence and its corresponding explanation. Learners can click through parts to understand the sentence structure step by step. Use it to make sentence analysis engaging and interactive.
+
+- VoiceRecorder: This component is an interactive tool designed to help language learners improve their pronunciation. It allows users to Record Their Voice and Listen to Native Pronunciation.Format: <VoiceRecorder text="Guten Morgen" nativeAudio="../../courses/en-de/_shared/guten_morgen.mp3" />
+
+- WordBuilder: This component allows users to practice vocabulary by scrambling the letters of a given word. It takes two arguments: targetWord (the word to be unscrambled) and nativeWord (the corresponding word in the learner's native language). Use it to engage learners in reconstructing words from scrambled letters. Format: <WordBuilder targetWord="your_target_word" nativeWord="your_native_word" />. Ensure the words are relevant to the lesson context to enhance the learning experience
+
 An example of a section that uses correctly all JSX components is the following:
 
 ## Section 2: Articles
@@ -54,6 +63,31 @@ Use "una" for feminine singular, "unas" for feminine plural.
 Remember:
 - Pronouns replace nouns in a sentence
 </TipBox>
+
+## Practice Exercise: Build the Word
+Now it's time to practice spelling some of these greetings! Rearrange the letters to spell the correct German word.
+
+<WordBuilder targetWord="Guten Morgen" nativeWord="Good morning" />
+<WordBuilder targetWord="Guten Tag" nativeWord="Good day" />
+<WordBuilder targetWord="Guten Abend" nativeWord="Good evening" />
+
+## Pronunciation Practice
+Practice saying the following phrase in German:
+
+<VoiceRecorder text="Guten Morgen" nativeAudio="../../courses/en-de/_shared/guten_morgen.mp3" />
+
+
+<HighlightableText highlights='[{"word":"Guten","info":"Means good in the accusative case."},{"word":"Morgen","info":"Means morning. Pronounced: MOR-gen."}]'>
+  Guten Morgen, wie geht es dir?
+</HighlightableText>
+
+<SentenceBreakdown sentence="Ich möchte einen Kaffee bestellen.">
+  <Part part="Ich" explanation="I (subject pronoun)" />
+  <Part part="möchte" explanation="Would like (modal verb)" />
+  <Part part="einen Kaffee" explanation="A coffee (accusative case)" />
+  <Part part="bestellen" explanation="To order (infinitive verb)" />
+</SentenceBreakdown>
+
 
 ___
 
@@ -100,6 +134,7 @@ The output must be a valid JSON object with the following structure:
 
 {
     "title": "Lesson Title",
+    "lesson_number": 1,
     "description": "Lesson Description",
     "sections": [
         {
@@ -138,7 +173,7 @@ elements: An array of strings representing interactive elements (see "Elements" 
 
 vocabulary: This is the most crucial part. There is only one vocabulary object in the lesson. The vocabulary must be an object with exactly two keys:
 
-words: An array of strings. These strings should be the vocabulary words themselves (e.g., "hola", "adiós"). Do not create objects for each word. Just list the words as strings.
+words: An array of strings. These strings should be the vocabulary words themselves (e.g., "hola", "adiós"). Do not create objects for each word. Just list the words as strings. Provide words and not single letters. (Words should be at least 2 characters long).
 
 properties: An array of strings representing the names of the properties that will be associated with each word in a separate data structure (which is not part of this JSON output). This array should always be: ["translation", "exampleSentence", "exampleTranslation", "gender"]. Do not include the actual translations, example sentences, etc., in this JSON.
 
@@ -230,6 +265,9 @@ The output should be the following:
 Notice that the text property contains the text of the concepts the learner needs to understand concatenated with ' ... ' in between to separate the examples.
 Notice that the text property does not contain any extra text like headings or explanations.
 Notice that the text property containts only and excluselively text or phrases in spanish.
+For each TextToSpeechPlayer, there should be one object with two keys:
+- text: the text to speak
+- audio_file_name: the name of the audio file
 The audio_file_name contains the name of the audio file for that section.
 
 Generate the json for this section based on the following content: 
