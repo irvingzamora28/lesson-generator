@@ -4,6 +4,7 @@ LESSON_SCHEMA = {
         "type": "object",
         "properties": {
             "title": {"type": "string"},
+            "lesson_number": {"type": "number"},
             "description": {"type": "string"},
             "sections": {
                 "type": "array",
@@ -27,6 +28,6 @@ LESSON_SCHEMA = {
                 "required": ["words", "properties"],
             },
         },
-        "required": ["title", "description", "sections"],
+        "required": ["title", "lesson_number", "description", "sections"],
     },
 }

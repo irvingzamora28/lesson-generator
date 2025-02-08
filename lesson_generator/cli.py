@@ -18,6 +18,7 @@ def generate_lessons(json_file_path, output_directory, ai_provider_name):
         for lesson in lessons_data:
             lesson_title = lesson["title"]
             vocabulary = lesson["vocabulary"]
+            lesson_number = lesson["lesson_number"]
             # logger.info(f"Generating content for lesson: {lesson['title']}")
             for section in lesson["sections"]:
                 section_title = section["title"]
