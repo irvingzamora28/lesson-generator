@@ -11,15 +11,16 @@ You are an educator tasked with creating engaging and educational content format
 COMPONENTS_INSTRUCTIONS = """
 You are creating an MDX-JSX file for educational purposes. Make sure to use the JSX components naturally and correctly within the educational content:
 
-- TextToSpeechPlayer: This component embeds audio related to the lesson. Use it without any title or explicit announcement. Just insert it where the audio example is necessary. Format: <TextToSpeechPlayer mp3File="relative_path_to_audio_file" />. Ensure the path is relevant to the content discussed.
+- TextToSpeechPlayer: This component embeds audio related to the lesson. Use it without any title or explicit announcement. Just insert it where the audio example is necessary. Format: <TextToSpeechPlayer mp3File="relative_path_to_audio_file" />. Ensure the path is relevant to the content discussed. If the audio that represents the example is only one word add the "miniPlayer" parameter set to true. Format: <TextToSpeechPlayer mp3File="relative_path_to_audio_file" miniPlayer={true} />.
 
 - TipBox: This component highlights key tips or important notes within the content. It should encapsulate a list of tips or a single tip directly, without any preceding title like "Tip:". Format: <TipBox>Here goes the tip or a list of tips.</TipBox>. It should be used to emphasize crucial points or suggestions naturally within the flow of the content.
 
 - Mnemonic: This component provides mnemonic aids for learning. Include it directly where the mnemonic aid is relevant to the lesson content. Do not precede it with any titles or introductions. It should appear as a natural part of the educational narrative. Format: <Mnemonic content="mnemonic_phrase" />. Ensure the content is helpful and relevant to the associated topic.
 
-- HighlightableText: This component highlights key words or phrases in a sentence and provides additional information (e.g., translations, grammar rules, pronunciation). Use it to make vocabulary or grammar points interactive. Format: <HighlightableText highlights='[{"word":"Guten","info":"Means good in the accusative case."},{"word":"Morgen","info":"Means morning. Pronounced: MOR-gen."}]'>
+- HighlightableText: This component highlights key words or phrases in a sentence and provides additional information (e.g., translations, grammar rules, pronunciation). Use it to make vocabulary or grammar points interactive. It should only be used in sentences and not on single words. It should not be used in a list.  Format: <HighlightableText highlights='[{"word":"Guten","info":"Means good in the accusative case."},{"word":"Morgen","info":"Means morning. Pronounced: MOR-gen."}]'>
   Guten Morgen, wie geht es dir?
 </HighlightableText>
+
 - SentenceBreakdown: This component breaks down complex sentences into smaller parts with explanations for each segment. Use it to teach sentence structure interactively. Format: <SentenceBreakdown sentence="Your sentence here"><Part part="segment" explanation="explanation" />...</SentenceBreakdown>. Each <Part> represents a segment of the sentence and its corresponding explanation. Learners can click through parts to understand the sentence structure step by step. Use it to make sentence analysis engaging and interactive.
 
 - VoiceRecorder: This component is an interactive tool designed to help language learners improve their pronunciation. It allows users to Record Their Voice and Listen to Native Pronunciation.Format: <VoiceRecorder text="Guten Morgen" nativeAudio="../../courses/en-de/_shared/guten_morgen.mp3" />
@@ -268,6 +269,29 @@ Notice that the text property containts only and excluselively text or phrases i
 For each TextToSpeechPlayer, there should be one object with two keys:
 - text: the text to speak
 - audio_file_name: the name of the audio file
+The text should reflext the example given and should not be repeated.
+If the example is only one word then the text should be only that word.
+
+For example if the input is the following:
+*   **A** - Pronounced like "ah" in "father".
+    *   Example: *casa* (house) <TextToSpeechPlayer mp3File="/src/assets/courses/spanish/_shared/lessons/lesson1/audio/casa.mp3" />
+    *   Example: *amar* (to love) <TextToSpeechPlayer mp3File="/src/assets/courses/spanish/_shared/lessons/lesson1/audio/amar.mp3" />
+    *   Example: *ala* (wing) <TextToSpeechPlayer mp3File="/src/assets/courses/spanish/_shared/lessons/lesson1/audio/ala.mp3" />
+    
+The output should be the following:
+{{
+    'text': 'casa',
+    'audio_file_name': 'casa.mp3'
+}},
+{{
+    'text': 'amar',
+    'audio_file_name': 'amar.mp3'
+}},
+{{
+    'text': 'ala',
+    'audio_file_name': 'ala.mp3'
+}}
+
 The audio_file_name contains the name of the audio file for that section.
 
 Generate the json for this section based on the following content: 
@@ -298,16 +322,18 @@ A good example of the table use is the following:
 | Chair           | Silla          | Feminine  | Hay una silla en la sala.         |
 | Desk            | Escritorio     | Masculine | El escritorio está en la oficina. |
 
+Inside of a table do not use components.
 Use list items for steps or tips, and ensure that the usage of these elements is directly relevant to the educational material. If an element like a table or list is mentioned, it must be used accordingly. Ensure each element enhances the lesson's educational value and readability.
 """
 
 # Content instruction template
-CONTENT_INSTRUCTION = """Generate the section content based on the prompt: {prompt}. Ensure the content is instructional and engaging. The content should be directly relevant to the lesson subject and formatted in MDX."""
+CONTENT_INSTRUCTION = """Generate the section content based on the prompt: {prompt}. Ensure the content is instructional and engaging. The content should be directly relevant to the lesson subject and formatted in MDX. This will be part of a larger lesson, so make sure the content is engaging, informative and short very short."""
 
 # Additional content generation instructions
 CONTENT_ADDITIONAL_INSTRUCTIONS = """\n\nNote: Remember to provide only the generated content in MDX format without unnecessary explanations or meta-commentary.
 Examples are very important to help students understand concepts. When you see pertinent the use of examples, use clear, concise examples to explain the key points and most importanly USE MANY examples, MORE THAN 6, THIS IS VERY IMPORTANT, USE MORE THAN 6 examples ALWAYS.
 Generate the content and only the content in an MDX format. 
+Keep the content short and to the point.
 Do not include text about what you did, your thought process or any other messages, just the generated content in MDX format. 
 Also omit the title of the lesson and the title of the section, just provide the content. 
 Do not format the output with ```markdown, ```mdx or anything like that."""
