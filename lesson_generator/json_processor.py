@@ -15,11 +15,17 @@ def generate_transformed_data(lesson_data):
         if "generated_json_audio_text" in section:
             # Ensure that section["generated_json_audio_text"] is treated as a dictionary.
             section_audio_text = section["generated_json_audio_text"]
+            print (section_audio_text)
             if isinstance(section_audio_text, str):
                 # If the section data is a string, it's likely JSON-encoded.
                 # Decode it back to a dictionary before appending.
                 section_audio_text = json.loads(section_audio_text)
-            transformed_data["data"].append(section_audio_text)
+                print(section_audio_text)
+                # If its an array extract the elements and append them to the transformed data
+            if isinstance(section_audio_text, list):
+                transformed_data["data"].extend(section_audio_text)
+            else:
+                transformed_data["data"].append(section_audio_text)
 
     return transformed_data
 
