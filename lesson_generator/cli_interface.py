@@ -28,7 +28,7 @@ questions = [
         "type": "list",
         "name": "action",
         "message": "What do you want to do?",
-        "choices": ["Generate lessons", "Generate lesson sections", "Exit"],
+        "choices": ["Generate lessons", "Generate lesson sections", "Generate audio files", "Exit"],
     },
     {
         "type": "list",
@@ -38,10 +38,17 @@ questions = [
         "when": lambda answers: answers["action"] in ["Generate lessons", "Generate lesson sections"],
     },
     {
+        "type": "list",
+        "name": "audio_provider",
+        "message": "Which audio provider would you like to use?",
+        "choices": ["Google"],
+        "when": lambda answers: answers["action"] == "Generate audio files",
+    },
+    {
         "type": "input",
         "name": "file_path",
         "message": "Enter the JSON file path:",
-        "when": lambda answers: answers["action"] in ["Generate lessons", "Generate lesson sections"],
+        "when": lambda answers: answers["action"] in ["Generate lessons", "Generate lesson sections", "Generate audio files"],
         "validate": is_valid_file_path,
         "default": lambda answers: "./tests/valid_generate_lessson_sections_input.json" if answers.get("action") == "Generate lesson sections" else "./tests/valid_input.json",
     },
@@ -49,14 +56,14 @@ questions = [
         "type": "input",
         "name": "output_directory",
         "message": "Enter the directory where you want the lessons to be saved:",
-        "when": lambda answers: answers["action"] in ["Generate lessons", "Generate lesson sections"],
+        "when": lambda answers: answers["action"] in ["Generate lessons", "Generate lesson sections", "Generate audio files"],
         "validate": is_valid_directory,
         "default": lambda _: "./sample_output",
     },
 ]
 
 
-def main(generate_lessons_func, generate_sections_func=None):
+def main(generate_lessons_func, generate_sections_func=None, generate_audio_func=None):
     answers = questionary.prompt(questions)
 
     if answers is None or answers.get("action") == "Exit":
@@ -65,7 +72,13 @@ def main(generate_lessons_func, generate_sections_func=None):
 
     file_path = answers.get("file_path")
     output_directory = answers.get("output_directory")
-    ai_provider = answers.get("ai_provider").lower()
+    ai_provider = answers.get("ai_provider")
+    if ai_provider is not None:
+        ai_provider = ai_provider.lower()
+        
+    audio_provider = answers.get("audio_provider")
+    if audio_provider is not None:
+        audio_provider = audio_provider.lower()
 
     # Handle relative paths
     if not os.path.isabs(file_path) and os.path.isfile(os.path.join(ROOT_DIR, file_path)):
@@ -77,3 +90,5 @@ def main(generate_lessons_func, generate_sections_func=None):
         generate_lessons_func(file_path, output_directory, ai_provider)
     elif answers.get("action") == "Generate lesson sections" and generate_sections_func:
         generate_sections_func(file_path, output_directory, ai_provider)
+    elif answers.get("action") == "Generate audio files" and generate_audio_func:
+        generate_audio_func(file_path, output_directory, audio_provider)

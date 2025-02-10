@@ -15,6 +15,7 @@ The Lesson Generator is a Python command-line application that assists content c
 
 -   Python environment
 -   An OpenAI API key
+-   Google Cloud account and project
 -   Internet access
 
 ### Installation
@@ -22,6 +23,79 @@ The Lesson Generator is a Python command-line application that assists content c
 1. Clone the repository to your local machine.
 2. Install necessary Python packages specified in `requirements.txt`.
 3. Set up an `.env` file with your OpenAI API key.
+4. Set up Google Cloud Text-to-Speech (see below).
+
+### Google Cloud Text-to-Speech Setup
+
+To use the Google Cloud Text-to-Speech functionality, follow these steps:
+
+1. Install the Google Cloud SDK:
+   ```bash
+   # Download the SDK
+   curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-454.0.0-linux-x86_64.tar.gz
+   
+   # Extract the archive
+   tar -xf google-cloud-sdk-454.0.0-linux-x86_64.tar.gz
+   
+   # Run the installer
+   ./google-cloud-sdk/install.sh
+   ```
+
+2. Initialize the Google Cloud SDK:
+   ```bash
+   gcloud init
+   ```
+   This will:
+   - Open a browser window for you to log in to your Google account
+   - Let you select or create a Google Cloud project
+   - Set up your default project
+
+3. Set up application default credentials:
+   ```bash
+   # Login and set up credentials
+   gcloud auth application-default login
+   
+   # Set the quota project (replace with your project ID)
+   gcloud auth application-default set-quota-project YOUR_PROJECT_ID
+   ```
+
+4. Enable the Text-to-Speech API:
+   ```bash
+   gcloud services enable texttospeech.googleapis.com
+   ```
+
+#### Troubleshooting Google Cloud Setup
+
+1. If you get a "quota project not set" error:
+   ```bash
+   gcloud auth application-default set-quota-project YOUR_PROJECT_ID
+   ```
+
+2. If you get a "service not enabled" error:
+   ```bash
+   gcloud services enable texttospeech.googleapis.com
+   ```
+
+3. To verify your setup:
+   ```bash
+   # Check if you're properly authenticated
+   gcloud auth list
+   
+   # Check your current project
+   gcloud config list project
+   
+   # Test the Text-to-Speech API
+   curl -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     -H "Content-Type: application/json" \
+     "https://texttospeech.googleapis.com/v1/voices"
+   ```
+
+#### Notes
+
+- The Google Cloud SDK installation files are added to `.gitignore` to prevent them from being committed
+- The authentication credentials are stored in `~/.config/gcloud/`
+- Make sure your Google Cloud project has billing enabled to use the Text-to-Speech API
 
 ## Usage
 

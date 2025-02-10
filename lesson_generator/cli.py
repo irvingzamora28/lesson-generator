@@ -3,6 +3,7 @@ import os
 import json
 from lesson_generator.i18n_setup import setup_i18n
 from lesson_generator.api_provider import get_ai_provider
+from lesson_generator.audio_provider import GoogleTextToSpeech
 from lesson_generator.json_loader import process_json_file
 from lesson_generator.embed_components import embed_components_in_sections
 from lesson_generator.log import logger
@@ -136,10 +137,27 @@ def generate_lesson_sections(json_file_path, output_directory, ai_provider_name)
         raise LessonGenerationError(f"Error generating lesson sections: {str(e)}")
 
 
+def generate_audio(json_file_path, output_directory, audio_provider_name):
+    try:
+        if audio_provider_name == 'google':
+            audio_provider = GoogleTextToSpeech()
+        else:
+            raise ValueError(f"Unsupported audio provider: {audio_provider_name}")
+        
+        success = audio_provider.generate_audio_from_json(json_file_path, output_directory)
+        if success:
+            logger.info(f"Successfully generated audio files in {output_directory}")
+        else:
+            logger.error("Some audio files could not be generated")
+    except Exception as e:
+        logger.error(f"Error generating audio files: {str(e)}")
+        raise LessonGenerationError(f"Failed to generate audio files: {str(e)}")
+
+
 def main():
     from lesson_generator.cli_interface import main as cli_interface_main
 
-    cli_interface_main(generate_lessons, generate_lesson_sections)
+    cli_interface_main(generate_lessons, generate_lesson_sections, generate_audio)
 
 
 if __name__ == "__main__":
