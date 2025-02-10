@@ -292,6 +292,47 @@ The output should be the following:
     'audio_file_name': 'ala.mp3'
 }}
 
+If the example is more than one word or a sentence then the text should be the whole sentence or phrase.
+
+For example if the input is the following:
+| Letter | Name (Spanish) | Pronunciation (General) | Example Word | Translation |
+|---|---|---|---|---|
+| A | a | ah |  árbol | tree |
+| B | be | beh | barco | boat |
+| C | ce | seh (before e, i); kah (before a, o, u) | cielo, casa | sky, house |
+| D | de | deh |  dedo | finger |
+| E | e | eh | elefante | elephant |
+| F | efe | eh-feh | flor | flower |
+| G | ge | heh (before e, i); geh (before a, o, u) | gente, gato | people, cat |
+| H | hache | ah-cheh (silent) | hola | hello |
+| I | i | ee | isla | island |
+| J | jota | ho-tah | jugar| to play |
+| K | ka | kah |  kilo | kilogram |
+| L | ele | eh-leh | luna | moon |
+| M | eme | eh-meh | madre | mother |
+| N | ene | eh-neh | nube | cloud |
+| Ñ | eñe | eh-nyeh | niño | boy |
+| O | o | oh | ojo | eye |
+| P | pe | peh | padre | father |
+| Q | cu | koo | queso | cheese |
+| R | ere | eh-reh (trilled) | ratón | mouse |
+| S | ese | eh-seh | sol | sun |
+| T | te | teh | taza | cup |
+| U | u | oo | uva | grape |
+| V | uve | oo-beh | vaca | cow |
+| W | uve doble | oo-beh doh-bleh | wifi | wifi |
+| X | equis | eh-kees | xilófono | xylophone |
+| Y | ye / i griega | yeh / ee-gree-eh-gah | yo | I |
+| Z | zeta | seh-tah | zorro | fox |
+
+<TextToSpeechPlayer mp3File="/src/assets/courses/spanish/_shared/lessons/lesson1/audio/alphabet.mp3" />
+
+The output should be the following:
+{{
+    "text": "árbol ... barco ... cielo, casa ... dedo ... elefante ... flor ... gente, gato ... hola ... isla ... jugar ... kilo ... luna ... madre ... nube ... niño ... ojo ... padre ... queso ... ratón ... sol ... taza ... uva ... vaca ... wifi ... xilófono ... yo ... zorro",
+    "audio_file_name": "alphabet.mp3"
+}}
+
 The audio_file_name contains the name of the audio file for that section.
 
 Generate the json for this section based on the following content: 
